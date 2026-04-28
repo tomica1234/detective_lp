@@ -4,222 +4,212 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>やさしい探偵相談所 | 未婚カップル向け調査サービス</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #f5f9ff;
-        --card: #fff;
-        --blue: #2568c2;
-        --blue-dark: #113f83;
+        --bg: #f4f9ff;
+        --card: #ffffff;
+        --blue: #2264bf;
+        --blue-dark: #123d80;
         --blue-soft: #eaf3ff;
-        --pink: #ef4f7a;
-        --pink-strong: #e23667;
-        --text: #1f3b67;
+        --pink: #ef4d78;
+        --pink-deep: #e33566;
+        --text: #1a3764;
         --border: #d4e3f6;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
         color: var(--text);
-        background: linear-gradient(180deg, var(--bg), #fff 320px);
+        background: linear-gradient(180deg, var(--bg), #fff 280px);
       }
-      img { max-width: 100%; display: block; }
-      a { text-decoration: none; color: inherit; }
+      a { color: inherit; text-decoration: none; }
       .container { width: min(1100px, calc(100% - 28px)); margin-inline: auto; }
       .section { margin-top: 20px; }
       .card {
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 22px;
-        box-shadow: 0 10px 22px rgba(37, 104, 194, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 10px 24px rgba(34, 100, 191, 0.08);
       }
       .section-title {
         margin: 0 0 12px;
         text-align: center;
+        font-size: clamp(1.55rem, 2.6vw, 2.3rem);
         color: var(--blue-dark);
-        font-size: clamp(1.55rem, 2.8vw, 2.2rem);
       }
-
       .top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
-        padding: 12px 0 8px;
+        gap: 12px;
+        padding: 14px 0 8px;
       }
       .brand-wrap { display: flex; align-items: center; gap: 10px; }
-      .logo { width: 42px; height: 42px; }
-      .brand { margin: 0; font-size: clamp(1rem, 2vw, 1.35rem); color: var(--blue-dark); font-weight: 800; }
-      .sub { margin: 2px 0 0; font-size: .8rem; color: #6080ab; font-weight: 500; }
+      .logo {
+        width: 38px; height: 38px; border-radius: 12px;
+        background: linear-gradient(135deg, #fff, #e8f2ff);
+        border: 1px solid #c9dcf7;
+        display: grid; place-items: center;
+        color: var(--pink); font-size: 20px;
+      }
+      .brand { margin: 0; font-size: clamp(1rem, 2vw, 1.35rem); color: var(--blue-dark); }
+      .sub { margin: 3px 0 0; font-size: .78rem; color: #55739e; }
       .contact { text-align: right; }
-      .contact small { display: block; font-size: .74rem; color: #6080ab; }
-      .contact strong { font-size: clamp(1.2rem, 2.7vw, 2rem); color: var(--blue); }
+      .contact small { display: block; color: #55739e; font-size: .74rem; }
+      .contact strong { font-size: clamp(1.2rem, 2.6vw, 2rem); color: var(--blue); letter-spacing: .02em; }
 
       .hero {
         padding: 18px;
         display: grid;
-        gap: 14px;
-        overflow: hidden;
-        position: relative;
+        gap: 16px;
       }
-      .leaf {
-        position: absolute;
-        width: min(170px, 36vw);
-        opacity: .7;
-        pointer-events: none;
-      }
-      .leaf.right { right: -30px; bottom: -20px; }
-      .eyebrow { margin: 0 0 8px; color: var(--blue); font-weight: 700; }
+      .eyebrow { color: var(--blue); font-weight: 700; font-size: .95rem; margin: 0 0 8px; }
       h1 {
         margin: 0;
         line-height: 1.3;
+        font-size: clamp(1.7rem, 5.4vw, 3rem);
         color: var(--blue-dark);
-        font-size: clamp(1.65rem, 5.5vw, 3rem);
       }
       .accent { color: var(--pink); }
-      .lead { margin: 10px 0 0; line-height: 1.8; font-size: clamp(.98rem, 2.2vw, 1.18rem); }
-      .hero-art {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
-        align-items: end;
-      }
-      .bubble {
-        border-radius: 999px;
-        background: #eef5ff;
-        border: 1px solid #cfe0f6;
-        padding: 8px;
-      }
-      .hero-main {
+      .lead { margin: 10px 0 0; font-size: clamp(1rem, 2.2vw, 1.25rem); line-height: 1.7; }
+      .hero-visual {
         border-radius: 16px;
-        border: 1px solid #cfe0f6;
-        background: radial-gradient(circle at 30% 20%, #fff, #edf4ff);
-        padding: 8px;
+        background: radial-gradient(circle at 20% 10%, #d8eaff, #f7fbff 65%);
+        border: 1px dashed #bdd3f1;
+        padding: 12px;
       }
-
+      .hero-visual img { width: 100%; border-radius: 12px; display: block; }
       .price-panel {
-        margin-top: 10px;
-        border-radius: 18px;
-        border: 2px solid #efcf94;
-        background: #fffaf1;
+        margin-top: 12px;
+        border: 2px solid #f0cd8a;
+        border-radius: 16px;
+        background: #fffaf2;
         padding: 12px;
       }
       .label {
         display: inline-block;
-        color: #fff;
+        padding: 5px 11px;
+        border-radius: 999px;
         background: var(--pink);
-        border-radius: 999px;
-        font-size: .9rem;
-        font-weight: 800;
-        padding: 5px 12px;
+        color: #fff;
+        font-weight: 700;
+        font-size: .88rem;
       }
-      .price-title { margin: 8px 0 6px; font-size: clamp(1.35rem, 4vw, 2rem); color: var(--blue-dark); font-weight: 800; }
-      .price { margin: 0; color: var(--pink); font-weight: 800; line-height: 1; font-size: clamp(2.4rem, 10.5vw, 4.5rem); }
-      .price small { color: var(--blue-dark); font-size: .45em; }
-      .price-note { margin: 8px 0 0; color: #506d98; font-size: .95rem; }
-
-      .cta-row { margin-top: 12px; display: grid; gap: 10px; }
+      .price-title { margin: 8px 0 6px; font-weight: 700; color: var(--blue-dark); font-size: clamp(1.35rem, 4vw, 2rem); }
+      .price {
+        margin: 0;
+        color: var(--pink);
+        font-size: clamp(2.5rem, 11vw, 4.6rem);
+        font-weight: 800;
+        line-height: 1;
+      }
+      .price small { color: var(--blue-dark); font-size: .45em; font-weight: 700; }
+      .price-note { margin: 8px 0 0; font-size: .95rem; color: #445f88; }
+      .cta-stack { margin-top: 12px; display: grid; gap: 10px; }
       .cta {
-        min-height: 54px;
-        border-radius: 999px;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        color: #fff;
-        font-weight: 800;
+        min-height: 54px;
+        border-radius: 999px;
+        border: none;
+        font-weight: 700;
         font-size: 1.08rem;
-        background: linear-gradient(180deg, #ff7f9f, var(--pink-strong));
-        box-shadow: 0 8px 18px rgba(226, 54, 103, .25);
+        color: #fff;
         padding: 0 18px;
+        background: linear-gradient(180deg, #ff7c9d, var(--pink-deep));
+        box-shadow: 0 8px 18px rgba(239, 77, 120, 0.25);
       }
       .cta.secondary {
-        background: linear-gradient(180deg, #6faaf4, #2c73ce);
-        box-shadow: 0 8px 18px rgba(44, 115, 206, .2);
+        background: linear-gradient(180deg, #6ba7f3, #2f70ca);
+        box-shadow: 0 8px 18px rgba(47, 112, 202, 0.2);
       }
 
-      .problem-grid, .reason-grid, .flow-grid, .plan-grid { display: grid; gap: 10px; }
-      .item {
+      .problem-grid,
+      .reason-grid,
+      .flow-grid,
+      .plan-points { display: grid; gap: 10px; }
+      .problem-item,
+      .reason-item,
+      .flow-item {
         padding: 14px;
-        border: 1px solid var(--border);
         border-radius: 14px;
+        border: 1px solid var(--border);
         background: #fff;
       }
-      .item p { margin: 6px 0 0; font-weight: 700; line-height: 1.65; }
+      .problem-item p,
+      .reason-item p { margin: 6px 0 0; font-weight: 700; line-height: 1.6; }
 
-      .cheap-wrap { border: 2px solid var(--blue); overflow: hidden; }
+      .cheap-wrap {
+        border: 2px solid var(--blue);
+        overflow: hidden;
+      }
       .cheap-head {
-        margin: 0;
-        text-align: center;
+        background: linear-gradient(180deg, #0e5ec7, #2f74d0);
         color: #fff;
-        background: linear-gradient(180deg, #0f62cb, #2f75d1);
-        font-size: clamp(1.45rem, 4vw, 2.2rem);
-        padding: 13px;
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        font-weight: 800;
+        padding: 14px;
       }
       .cheap-body { padding: 14px; }
-      .plan-grid { margin: 12px 0; grid-template-columns: repeat(2, 1fr); }
-      .plan-item {
+      .plan-points { grid-template-columns: repeat(2, 1fr); margin: 12px 0; }
+      .point {
         background: var(--blue-soft);
-        border: 1px solid #d3e3fa;
         border-radius: 12px;
+        border: 1px solid #d5e5fa;
         padding: 10px;
-        text-align: center;
+        font-weight: 700;
+        font-size: .92rem;
       }
-      .plan-item img { width: 42px; margin: 0 auto 6px; }
-      .plan-item p { margin: 0; font-size: .86rem; font-weight: 700; }
 
-      .reason-icon { width: 46px; margin-bottom: 6px; }
+      .couple-plan { padding: 16px; background: #eff6ff; }
+      .couple-plan h2 { margin: 0; color: var(--blue-dark); font-size: clamp(1.45rem, 4vw, 2rem); }
+      .couple-price { margin: 10px 0 8px; color: #1f5cad; font-weight: 800; font-size: clamp(2rem, 8vw, 3.8rem); }
+      .checklist { margin: 0; padding-left: 20px; line-height: 1.9; font-weight: 700; }
 
-      .couple {
-        padding: 16px;
-        background: #edf5ff;
-      }
-      .couple h2 { margin: 0; color: var(--blue-dark); }
-      .couple-price { margin: 8px 0; color: #1d5cae; font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 800; }
-      .couple ul { margin: 0; padding-left: 20px; line-height: 1.8; font-weight: 700; }
-      .couple-illust { max-width: 250px; margin: 0 auto; }
-
-      .flow-item { text-align: center; }
       .flow-item strong { color: var(--blue); font-size: 1.25rem; }
-      .flow-item img { width: 58px; margin: 4px auto; }
-
+      .faq { display: grid; gap: 10px; }
       details {
         border: 1px solid #cde0f7;
         border-radius: 12px;
         background: #fff;
         padding: 12px 14px;
       }
-      summary { cursor: pointer; color: var(--blue-dark); font-weight: 700; }
-      details p { margin: 8px 0 0; line-height: 1.75; }
+      summary { cursor: pointer; font-size: 1.02rem; font-weight: 700; color: var(--blue-dark); }
+      details p { margin: 8px 0 0; line-height: 1.7; }
 
       .final-cta {
         margin-top: 26px;
+        background: linear-gradient(180deg, #fef4f7, #f6faff);
         border-top: 1px solid #d5e5f7;
         border-bottom: 1px solid #d5e5f7;
-        background: linear-gradient(180deg, #fef5f8, #f5faff);
         padding: 24px 0;
       }
-      .final-cta p { margin: 0 0 12px; text-align: center; color: var(--blue-dark); font-size: clamp(1.18rem, 3vw, 1.75rem); font-weight: 700; }
-      footer { text-align: center; color: #5c78a0; font-size: .85rem; padding: 14px; }
+      .final-cta p { text-align: center; margin: 0 0 12px; font-size: clamp(1.2rem, 3.2vw, 1.8rem); font-weight: 700; color: var(--blue-dark); }
+      footer { text-align: center; padding: 14px; color: #55739e; font-size: .85rem; }
 
       @media (min-width: 768px) {
         .hero { grid-template-columns: 1.1fr 1fr; padding: 22px; }
-        .cta-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .problem-grid, .reason-grid { grid-template-columns: repeat(3, 1fr); }
-        .couple { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
-        .flow-grid { grid-template-columns: repeat(4, 1fr); }
+        .cta-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .problem-grid,
+        .reason-grid,
+        .flow-grid { grid-template-columns: repeat(3, 1fr); }
+        .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
       }
       @media (min-width: 1024px) {
-        .plan-grid { grid-template-columns: repeat(5, 1fr); }
+        .problem-grid { grid-template-columns: repeat(3, 1fr); }
+        .reason-grid { grid-template-columns: repeat(3, 1fr); }
+        .flow-grid { grid-template-columns: repeat(4, 1fr); }
+        .plan-points { grid-template-columns: repeat(5, 1fr); }
       }
     </style>
   </head>
   <body>
     <header class="container top" aria-label="ヘッダー">
       <div class="brand-wrap">
-        <img class="logo" src="assets/6282a828-7200-428f-9b47-fa7e1138b1f1.png" alt="やさしい探偵相談所のロゴ" />
+        <div class="logo" aria-hidden="true">♡</div>
         <div>
           <p class="brand">やさしい探偵相談所</p>
           <p class="sub">未婚カップルの味方</p>
@@ -233,7 +223,6 @@
 
     <main class="container">
       <section class="hero card section" aria-labelledby="hero-title">
-        <img class="leaf right" src="assets/20a02e21-e022-41e4-90d4-999f59da8d7f.png" alt="" aria-hidden="true" />
         <div>
           <p class="eyebrow">＼ 初めての探偵相談でも安心 ／</p>
           <h1 id="hero-title"><span class="accent">未婚カップル向け</span>の<br />やさしい調査サービス</h1>
@@ -246,39 +235,38 @@
             <p class="price-note">1回のみ / 最大3時間 / 別途諸経費</p>
           </div>
 
-          <div class="cta-row">
+          <div class="cta-stack">
             <a class="cta" href="#contact">まずは無料で相談してみる</a>
             <a class="cta secondary" href="#cheap-plan">激安プランを詳しく見る</a>
           </div>
         </div>
-        <div>
-          <div class="hero-art">
-            <div class="bubble"><img src="assets/74efa979-a984-4a7d-acf2-6b8becbb0026.png" alt="夜景の中で手をつなぐ男女のイメージ" /></div>
-            <div class="hero-main"><img src="assets/d110cba0-d983-4349-a730-a9a21c29d859.png" alt="考え込む女性のイラスト" /></div>
-            <div class="hero-main" style="grid-column:span 2;"><img src="assets/2dfca03e-8927-496d-8403-e379c981962c.png" alt="カメラのイラスト" /></div>
-          </div>
+        <div class="hero-visual">
+          <img
+            alt="不安を抱える女性と調査イメージのイラスト"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Crect width='640' height='420' fill='%23f5f9ff'/%3E%3Ccircle cx='130' cy='115' r='80' fill='%23dbe9ff'/%3E%3Ccircle cx='250' cy='95' r='55' fill='%23e8f2ff'/%3E%3Ccircle cx='380' cy='105' r='68' fill='%23dcecff'/%3E%3Crect x='360' y='145' width='220' height='210' rx='20' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ccircle cx='440' cy='215' r='45' fill='%23ffd8e4'/%3E%3Crect x='84' y='222' width='220' height='128' rx='16' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ctext x='110' y='298' fill='%232264bf' font-size='36' font-family='sans-serif'%3E%3Ft%3C/text%3E%3Ctext x='400' y='305' fill='%23123d80' font-size='28' font-family='sans-serif'%3E安心%3C/text%3E%3C/svg%3E"
+          />
         </div>
       </section>
 
       <section class="section" aria-labelledby="worry-title">
         <h2 id="worry-title" class="section-title">こんなお悩みありませんか？</h2>
         <div class="problem-grid">
-          <article class="item card"><img src="assets/d110cba0-d983-4349-a730-a9a21c29d859.png" alt="不安な表情の女性" /><p>恋人の行動が気になる</p></article>
-          <article class="item card"><img src="assets/c728279d-c12c-444c-8472-37587239b4b5.png" alt="チェックリストと虫眼鏡" /><p>信じたいけど不安を確認したい</p></article>
-          <article class="item card"><img src="assets/8d453eae-4a04-46bc-b7eb-eda262a13692.png" alt="寄り添うカップル" /><p>二人の将来のために事実を知りたい</p></article>
+          <article class="problem-item card"><p>恋人の行動が気になる</p></article>
+          <article class="problem-item card"><p>信じたいけど不安を確認したい</p></article>
+          <article class="problem-item card"><p>二人の将来のために事実を知りたい</p></article>
         </div>
       </section>
 
       <section id="cheap-plan" class="section cheap-wrap card" aria-labelledby="cheap-title">
-        <h2 class="cheap-head" id="cheap-title">初回限定 ★ 激安プラン</h2>
+        <div class="cheap-head" id="cheap-title">初回限定 ★ 激安プラン</div>
         <div class="cheap-body">
           <p class="price">5,000円 <small>/ 時間</small></p>
-          <div class="plan-grid">
-            <div class="plan-item"><img src="assets/ChatGPT Image 2026年4月29日 00_34_03.png" alt="二人の人物アイコン" /><p>未婚・未婚約者限定</p></div>
-            <div class="plan-item"><img src="assets/ChatGPT Image 2026年4月29日 00_34_03.png" alt="時計アイコン" /><p>最大3時間まで</p></div>
-            <div class="plan-item"><img src="assets/ChatGPT Image 2026年4月29日 00_34_03.png" alt="位置情報アイコン" /><p>指定場所で張り込み</p></div>
-            <div class="plan-item"><img src="assets/ChatGPT Image 2026年4月29日 00_34_03.png" alt="カメラアイコン" /><p>写真と事実のみ報告</p></div>
-            <div class="plan-item"><img src="assets/ChatGPT Image 2026年4月29日 00_34_03.png" alt="書類アイコン" /><p>詳細レポートなし</p></div>
+          <div class="plan-points">
+            <div class="point">未婚・未婚約者限定</div>
+            <div class="point">最大3時間まで</div>
+            <div class="point">指定場所で張り込み</div>
+            <div class="point">写真と事実のみ報告</div>
+            <div class="point">詳細レポートなし</div>
           </div>
           <a class="cta" href="#contact">激安プランで相談する</a>
           <p class="price-note" style="text-align:center;">1回のみ / 最大3時間 / 別途諸経費</p>
@@ -288,50 +276,51 @@
       <section class="section" aria-labelledby="reason-title">
         <h2 id="reason-title" class="section-title">初めての方に選ばれる理由</h2>
         <div class="reason-grid">
-          <article class="item card"><img class="reason-icon" src="assets/6282a828-7200-428f-9b47-fa7e1138b1f1.png" alt="ハートアイコン" /><p>はじめてでも相談しやすい</p></article>
-          <article class="item card"><img class="reason-icon" src="assets/6282a828-7200-428f-9b47-fa7e1138b1f1.png" alt="鍵アイコン" /><p>秘密厳守で安心</p></article>
-          <article class="item card"><img class="reason-icon" src="assets/6282a828-7200-428f-9b47-fa7e1138b1f1.png" alt="料金アイコン" /><p>明確な料金で安心</p></article>
+          <article class="reason-item card"><p>はじめてでも相談しやすい</p></article>
+          <article class="reason-item card"><p>秘密厳守で安心</p></article>
+          <article class="reason-item card"><p>明確な料金で安心</p></article>
         </div>
       </section>
 
-      <section class="section card couple" aria-labelledby="couple-title">
-        <img class="couple-illust" src="assets/8d453eae-4a04-46bc-b7eb-eda262a13692.png" alt="寄り添うカップルのイラスト" />
+      <section class="section card couple-plan" aria-labelledby="couple-title">
         <div>
           <h2 id="couple-title">カップルプラン</h2>
           <p class="couple-price">3万円 / 5時間</p>
-          <ul>
-            <li>しっかり確認したい方向け</li>
-            <li>基本単位は1時間</li>
-            <li>詳細レポート追加 +4万円</li>
-          </ul>
-          <a class="cta secondary" href="#contact" style="margin-top:10px;">カップルプランを相談する</a>
+          <a class="cta secondary" href="#contact">カップルプランを相談する</a>
         </div>
+        <ul class="checklist">
+          <li>しっかり確認したい方向け</li>
+          <li>基本単位は1時間</li>
+          <li>詳細レポート追加 +4万円</li>
+        </ul>
       </section>
 
       <section class="section" aria-labelledby="flow-title">
         <h2 id="flow-title" class="section-title">ご依頼の流れ</h2>
         <div class="flow-grid">
-          <article class="item flow-item card"><strong>1</strong><img src="assets/ChatGPT Image 2026年4月29日 00_34_23.png" alt="電話のアイコン" /><p>無料相談（電話・メール）</p></article>
-          <article class="item flow-item card"><strong>2</strong><img src="assets/ChatGPT Image 2026年4月29日 00_34_23.png" alt="チェックリストのアイコン" /><p>お見積り・プラン決定</p></article>
-          <article class="item flow-item card"><strong>3</strong><img src="assets/ChatGPT Image 2026年4月29日 00_34_23.png" alt="虫眼鏡のアイコン" /><p>調査実施</p></article>
-          <article class="item flow-item card"><strong>4</strong><img src="assets/ChatGPT Image 2026年4月29日 00_34_23.png" alt="メールのアイコン" /><p>結果のご報告（写真・事実のみ）</p></article>
+          <article class="flow-item card"><strong>1</strong><p>無料相談（電話・メール）</p></article>
+          <article class="flow-item card"><strong>2</strong><p>お見積り・プラン決定</p></article>
+          <article class="flow-item card"><strong>3</strong><p>調査実施</p></article>
+          <article class="flow-item card"><strong>4</strong><p>結果のご報告（写真・事実のみ）</p></article>
         </div>
       </section>
 
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title">よくあるご質問</h2>
-        <details>
-          <summary>Q. 本当にバレませんか？</summary>
-          <p>A. ご依頼内容は秘密厳守で対応します。相談内容は外部に共有しません。</p>
-        </details>
-        <details>
-          <summary>Q. 何時間から依頼できますか？</summary>
-          <p>A. 激安プランは1時間から、最大3時間までご利用いただけます。</p>
-        </details>
-        <details>
-          <summary>Q. 相談だけでも大丈夫ですか？</summary>
-          <p>A. はい。無料相談のみでも問題ありません。無理な勧誘はありません。</p>
-        </details>
+        <div class="faq">
+          <details>
+            <summary>Q. 本当にバレませんか？</summary>
+            <p>A. ご依頼内容は秘密厳守で対応します。相談内容は外部に共有しません。</p>
+          </details>
+          <details>
+            <summary>Q. 何時間から依頼できますか？</summary>
+            <p>A. 激安プランは1時間から、最大3時間までご利用いただけます。</p>
+          </details>
+          <details>
+            <summary>Q. 相談だけでも大丈夫ですか？</summary>
+            <p>A. はい。無料相談のみでも問題ありません。無理な勧誘はありません。</p>
+          </details>
+        </div>
       </section>
     </main>
 
