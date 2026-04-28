@@ -210,6 +210,12 @@
         font-weight: 700;
         padding: 12px;
       }
+      .photo-slot img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        object-fit: cover;
+      }
       .photo-slot small { display: block; color: #5a7596; font-size: 0.75rem; font-weight: 500; margin-top: 4px; }
 
       /* 激安プラン セクション */
@@ -333,10 +339,10 @@
         </div>
         <div class="hero-visual">
           <img
-            alt="不安を抱える女性と調査イメージのイラスト"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Crect width='640' height='420' fill='%23f5f9ff'/%3E%3Ccircle cx='130' cy='115' r='80' fill='%23dbe9ff'/%3E%3Ccircle cx='250' cy='95' r='55' fill='%23e8f2ff'/%3E%3Ccircle cx='380' cy='105' r='68' fill='%23dcecff'/%3E%3Crect x='360' y='145' width='220' height='210' rx='20' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ccircle cx='440' cy='215' r='45' fill='%23ffd8e4'/%3E%3Crect x='84' y='222' width='220' height='128' rx='16' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ctext x='110' y='298' fill='%233b7bbd' font-size='36' font-family='sans-serif'%3E%3Ft%3C/text%3E%3Ctext x='400' y='305' fill='%231b375c' font-size='28' font-family='sans-serif'%3E安心%3C/text%3E%3C/svg%3E"
+            alt="不安を抱える女性の写真"
+            src="static/woman.png"
           />
-          <p class="photo-note">📷 メインビジュアル写真（女性・カップル）をここに差し替え</p>
+          <p class="photo-note">使用画像: woman.png</p>
         </div>
       </section>
 
@@ -345,15 +351,24 @@
         <div class="problem-grid">
           <article class="problem-item card">
             <p>恋人の行動が気になる</p>
-            <div class="photo-slot">📷 写真挿入エリア<small>悩んでいる人物の写真</small></div>
+            <div class="photo-slot">
+              <img src="static/memo.png" alt="悩んでメモを取る女性" />
+              <small>使用画像: memo.png</small>
+            </div>
           </article>
           <article class="problem-item card">
             <p>信じたいけど不安を確認したい</p>
-            <div class="photo-slot">📷 写真挿入エリア<small>確認・調査イメージの写真</small></div>
+            <div class="photo-slot">
+              <img src="static/camera.png" alt="カメラで調査を行うイメージ" />
+              <small>使用画像: camera.png</small>
+            </div>
           </article>
           <article class="problem-item card">
             <p>二人の将来のために事実を知りたい</p>
-            <div class="photo-slot">📷 写真挿入エリア<small>カップル写真</small></div>
+            <div class="photo-slot">
+              <img src="static/couple.png" alt="向き合うカップルの写真" />
+              <small>使用画像: couple.png</small>
+            </div>
           </article>
         </div>
       </section>
@@ -403,7 +418,10 @@
           </ul>
           <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">カップルプランを相談する</a>
         </div>
-        <div class="photo-slot couple-photo" style="margin-top: 0;">📷 写真挿入エリア<small>カップルプラン用の人物写真</small></div>
+        <div class="photo-slot couple-photo" style="margin-top: 0;">
+          <img src="static/couple_night.png" alt="夜の街を歩くカップルの写真" />
+          <small>使用画像: couple_night.png</small>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="flow-title">
