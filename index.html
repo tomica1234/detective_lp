@@ -9,237 +9,289 @@
     <title>やさしい探偵相談所 | 未婚カップル向け調査サービス</title>
     <style>
       :root {
-        --bg: #f4f9ff;
+        /* 色味を少し柔らかく洗練されたトーンに調整 */
+        --bg: #f5f9fc;
         --card: #ffffff;
-        --blue: #2264bf;
-        --blue-dark: #123d80;
-        --blue-soft: #eaf3ff;
-        --pink: #ef4d78;
-        --pink-deep: #e33566;
-        --text: #1a3764;
-        --border: #d4e3f6;
+        --blue: #3b7bbd;
+        --blue-dark: #1b375c;
+        --blue-soft: #f0f6fc;
+        --pink: #e66a89;
+        --pink-deep: #cc4d6e;
+        --text: #2c3e50;
+        --border: #e2ecf5;
+        --shadow: rgba(59, 123, 189, 0.06);
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
         color: var(--text);
-        background: linear-gradient(180deg, var(--bg), #fff 280px);
+        background: var(--bg);
+        /* 背景グラデーションを少し滑らかに */
+        background: linear-gradient(180deg, #eaf2fa 0%, var(--bg) 400px);
+        line-height: 1.6;
       }
       a { color: inherit; text-decoration: none; }
-      .container { width: min(1100px, calc(100% - 28px)); margin-inline: auto; }
-      .section { margin-top: 20px; }
+      .container { width: min(1000px, calc(100% - 40px)); margin-inline: auto; }
+      
+      /* セクション間の余白を広げて息継ぎのスペースを作る */
+      .section { margin-top: 64px; }
+      
       .card {
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 20px;
-        box-shadow: 0 10px 24px rgba(34, 100, 191, 0.08);
+        border-radius: 24px;
+        /* 影をふんわりとさせて高級感を出す */
+        box-shadow: 0 12px 32px var(--shadow), 0 2px 8px rgba(0,0,0,0.02);
       }
       .section-title {
-        margin: 0 0 12px;
+        margin: 0 0 24px;
         text-align: center;
-        font-size: clamp(1.55rem, 2.6vw, 2.3rem);
+        font-size: clamp(1.4rem, 2.5vw, 2.2rem);
         color: var(--blue-dark);
+        letter-spacing: 0.05em;
       }
+
+      /* ヘッダー周り */
       .top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 12px;
-        padding: 14px 0 8px;
-      }
-      .brand-wrap { display: flex; align-items: center; gap: 10px; }
-      .logo {
-        width: 38px; height: 38px; border-radius: 12px;
-        background: linear-gradient(135deg, #fff, #e8f2ff);
-        border: 1px solid #c9dcf7;
-        display: grid; place-items: center;
-        color: var(--pink); font-size: 20px;
-      }
-      .brand { margin: 0; font-size: clamp(1rem, 2vw, 1.35rem); color: var(--blue-dark); }
-      .sub { margin: 3px 0 0; font-size: .78rem; color: #55739e; }
-      .contact { text-align: right; }
-      .contact small { display: block; color: #55739e; font-size: .74rem; }
-      .contact strong { font-size: clamp(1.2rem, 2.6vw, 2rem); color: var(--blue); letter-spacing: .02em; }
-
-      .hero {
-        padding: 18px;
-        display: grid;
         gap: 16px;
+        padding: 20px 0;
       }
-      .eyebrow { color: var(--blue); font-weight: 700; font-size: .95rem; margin: 0 0 8px; }
+      .brand-wrap { display: flex; align-items: center; gap: 12px; }
+      .logo {
+        width: 44px; height: 44px; border-radius: 14px;
+        background: #fff;
+        border: 2px solid var(--pink);
+        display: grid; place-items: center;
+        color: var(--pink); font-size: 22px;
+      }
+      .brand { margin: 0; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 800; color: var(--blue-dark); }
+      .sub { margin: 2px 0 0; font-size: 0.8rem; color: #5a7596; font-weight: 500; }
+      .contact { text-align: right; }
+      .contact small { display: block; color: #5a7596; font-size: 0.75rem; font-weight: 700; }
+      .contact strong { font-size: clamp(1.2rem, 2.6vw, 1.8rem); color: var(--blue); letter-spacing: 0.05em; font-weight: 800; }
+
+      /* ヒーローセクション */
+      .hero {
+        padding: 32px 24px;
+        display: grid;
+        gap: 32px;
+        align-items: center;
+      }
+      .eyebrow { 
+        display: inline-block;
+        color: var(--blue); 
+        font-weight: 800; 
+        font-size: 0.9rem; 
+        margin: 0 0 12px; 
+        background: var(--blue-soft);
+        padding: 6px 16px;
+        border-radius: 999px;
+      }
       h1 {
         margin: 0;
-        line-height: 1.3;
-        font-size: clamp(1.7rem, 5.4vw, 3rem);
+        line-height: 1.4;
+        font-size: clamp(1.6rem, 5vw, 2.8rem);
         color: var(--blue-dark);
       }
       .accent { color: var(--pink); }
-      .lead { margin: 10px 0 0; font-size: clamp(1rem, 2.2vw, 1.25rem); line-height: 1.7; }
+      .lead { margin: 16px 0 0; font-size: clamp(0.95rem, 2vw, 1.15rem); line-height: 1.8; color: #4a5c70; }
       .hero-visual {
-        border-radius: 16px;
-        background: radial-gradient(circle at 20% 10%, #d8eaff, #f7fbff 65%);
-        border: 1px dashed #bdd3f1;
-        padding: 12px;
+        border-radius: 20px;
+        background: radial-gradient(circle at 50% 50%, #f0f6fc, #ffffff);
+        border: 2px dashed #c9dff5;
+        padding: 16px;
       }
       .hero-visual img { width: 100%; border-radius: 12px; display: block; }
       .photo-note {
-        margin: 8px 0 0;
-        font-size: .82rem;
-        color: #3868aa;
+        margin: 12px 0 0;
+        font-size: 0.85rem;
+        color: #5a7596;
         text-align: center;
         font-weight: 700;
       }
+
+      /* 料金パネル */
       .price-panel {
-        margin-top: 12px;
-        border: 2px solid #f0cd8a;
-        border-radius: 16px;
-        background: #fffaf2;
-        padding: 12px;
+        margin-top: 24px;
+        border: 2px solid #f2dfb3;
+        border-radius: 20px;
+        background: #fffcf5;
+        padding: 20px;
+        position: relative;
       }
       .label {
+        position: absolute;
+        top: -12px;
+        left: 20px;
         display: inline-block;
-        padding: 5px 11px;
+        padding: 4px 16px;
         border-radius: 999px;
         background: var(--pink);
         color: #fff;
-        font-weight: 700;
-        font-size: .88rem;
+        font-weight: 800;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 10px rgba(230, 106, 137, 0.3);
       }
-      .price-title { margin: 8px 0 6px; font-weight: 700; color: var(--blue-dark); font-size: clamp(1.35rem, 4vw, 2rem); }
+      .price-title { margin: 0 0 8px; font-weight: 800; color: var(--blue-dark); font-size: clamp(1.2rem, 3vw, 1.6rem); }
       .price {
         margin: 0;
         color: var(--pink);
-        font-size: clamp(2.5rem, 11vw, 4.6rem);
+        font-size: clamp(2.4rem, 8vw, 4rem);
         font-weight: 800;
         line-height: 1;
       }
-      .price small { color: var(--blue-dark); font-size: .45em; font-weight: 700; }
-      .price-note { margin: 8px 0 0; font-size: .95rem; color: #445f88; }
-      .cta-stack { margin-top: 12px; display: grid; gap: 10px; }
+      .price small { color: var(--blue-dark); font-size: 0.4em; font-weight: 700; }
+      .price-note { margin: 8px 0 0; font-size: 0.85rem; color: #5a7596; font-weight: 500; }
+
+      /* ボタン群 */
+      .cta-stack { margin-top: 24px; display: grid; gap: 16px; }
       .cta {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 54px;
-        width: min(100%, 460px);
+        min-height: 60px;
+        width: min(100%, 480px);
         margin-inline: auto;
         border-radius: 999px;
         border: none;
-        font-weight: 700;
-        font-size: 1.08rem;
+        font-weight: 800;
+        font-size: 1.1rem;
         color: #fff;
-        padding: 0 18px;
+        padding: 0 24px;
         text-align: center;
-        background: linear-gradient(180deg, #ff7c9d, var(--pink-deep));
-        box-shadow: 0 8px 18px rgba(239, 77, 120, 0.25);
+        background: linear-gradient(135deg, #f285a0, var(--pink-deep));
+        box-shadow: 0 8px 20px rgba(204, 77, 110, 0.25);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      }
+      .cta:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(204, 77, 110, 0.35);
       }
       .cta.secondary {
-        background: linear-gradient(180deg, #6ba7f3, #2f70ca);
-        box-shadow: 0 8px 18px rgba(47, 112, 202, 0.2);
+        background: linear-gradient(135deg, #6aa5f0, var(--blue));
+        box-shadow: 0 8px 20px rgba(59, 123, 189, 0.25);
+      }
+      .cta.secondary:hover {
+        box-shadow: 0 12px 24px rgba(59, 123, 189, 0.35);
       }
 
+      /* グリッドレイアウト */
       .problem-grid,
       .reason-grid,
       .flow-grid,
-      .plan-points { display: grid; gap: 10px; }
+      .plan-points { display: grid; gap: 16px; }
       .problem-item,
       .reason-item,
       .flow-item {
-        padding: 14px;
-        border-radius: 14px;
+        padding: 24px;
+        border-radius: 20px;
         border: 1px solid var(--border);
         background: #fff;
+        text-align: center;
       }
       .problem-item p,
-      .reason-item p { margin: 6px 0 0; font-weight: 700; line-height: 1.6; }
+      .reason-item p { margin: 0; font-weight: 800; line-height: 1.5; color: var(--blue-dark); font-size: 1.05rem; }
+      
       .photo-slot {
-        margin-top: 10px;
-        min-height: 84px;
-        border: 2px dashed #a9c4ea;
+        margin-top: 16px;
+        min-height: 100px;
+        border: 2px dashed #c9dff5;
         border-radius: 12px;
-        background: #f4f9ff;
-        color: #2d63ab;
+        background: var(--bg);
+        color: var(--blue);
         display: grid;
         place-items: center;
         text-align: center;
-        font-size: .82rem;
+        font-size: 0.85rem;
         font-weight: 700;
-        line-height: 1.5;
-        padding: 8px;
+        padding: 12px;
       }
-      .photo-slot small {
-        display: block;
-        color: #4f79b3;
-        font-size: .75rem;
-        font-weight: 600;
-      }
+      .photo-slot small { display: block; color: #5a7596; font-size: 0.75rem; font-weight: 500; margin-top: 4px; }
 
+      /* 激安プラン セクション */
       .cheap-wrap {
-        border: 2px solid var(--blue);
+        border: 3px solid var(--blue-soft);
         overflow: hidden;
       }
       .cheap-head {
-        background: linear-gradient(180deg, #0e5ec7, #2f74d0);
-        color: #fff;
-        text-align: center;
-        font-size: clamp(1.5rem, 4vw, 2.2rem);
-        font-weight: 800;
-        padding: 14px;
-      }
-      .cheap-body { padding: 14px; }
-      .plan-points { grid-template-columns: repeat(2, 1fr); margin: 12px 0; }
-      .point {
         background: var(--blue-soft);
-        border-radius: 12px;
-        border: 1px solid #d5e5fa;
-        padding: 10px;
-        font-weight: 700;
-        font-size: .92rem;
+        color: var(--blue-dark);
+        text-align: center;
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-weight: 800;
+        padding: 20px;
       }
-
-      .couple-plan { padding: 16px; background: #eff6ff; }
-      .couple-plan h2 { margin: 0; color: var(--blue-dark); font-size: clamp(1.45rem, 4vw, 2rem); }
-      .couple-price { margin: 10px 0 8px; color: #1f5cad; font-weight: 800; font-size: clamp(2rem, 8vw, 3.8rem); }
-      .checklist { margin: 0; padding-left: 20px; line-height: 1.9; font-weight: 700; }
-      .couple-photo {
-        margin-top: 12px;
-        min-height: 120px;
-      }
-
-      .flow-item strong { color: var(--blue); font-size: 1.25rem; }
-      .faq { display: grid; gap: 10px; }
-      details {
-        border: 1px solid #cde0f7;
-        border-radius: 12px;
+      .cheap-body { padding: 32px 24px; text-align: center; }
+      .cheap-body .price { margin-bottom: 24px; }
+      .plan-points { grid-template-columns: repeat(2, 1fr); margin: 0 0 24px; gap: 12px; }
+      .point {
         background: #fff;
-        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 12px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--blue-dark);
       }
-      summary { cursor: pointer; font-size: 1.02rem; font-weight: 700; color: var(--blue-dark); }
-      details p { margin: 8px 0 0; line-height: 1.7; }
 
+      /* カップルプラン セクション */
+      .couple-plan { padding: 32px 24px; background: linear-gradient(135deg, #ffffff, #f0f6fc); border: 1px solid #d5e6f7; }
+      .couple-plan h2 { margin: 0; color: var(--blue-dark); font-size: clamp(1.4rem, 4vw, 1.8rem); }
+      .couple-price { margin: 12px 0 16px; color: var(--blue); font-weight: 800; font-size: clamp(2rem, 8vw, 3.2rem); line-height: 1; }
+      .checklist { margin: 0 0 24px; padding-left: 0; list-style: none; line-height: 1.8; font-weight: 700; color: #4a5c70; }
+      .checklist li::before { content: "✓"; color: var(--pink); margin-right: 8px; font-weight: 900; }
+      .couple-photo { min-height: 140px; margin-bottom: 24px; }
+
+      /* フロー */
+      .flow-item { text-align: left; position: relative; padding-left: 20px; }
+      .flow-item strong { 
+        display: block; 
+        color: var(--blue); 
+        font-size: 1.4rem; 
+        font-weight: 900; 
+        margin-bottom: 8px;
+        opacity: 0.4;
+      }
+
+      /* FAQ */
+      .faq { display: grid; gap: 12px; }
+      details {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: #fff;
+        padding: 16px 20px;
+        transition: background 0.2s;
+      }
+      details:hover { background: var(--bg); }
+      summary { cursor: pointer; font-size: 1.05rem; font-weight: 800; color: var(--blue-dark); list-style-position: outside; }
+      details p { margin: 12px 0 0; line-height: 1.7; color: #4a5c70; font-size: 0.95rem; }
+
+      /* フッター前CTA */
       .final-cta {
-        margin-top: 26px;
-        background: linear-gradient(180deg, #fef4f7, #f6faff);
-        border-top: 1px solid #d5e5f7;
-        border-bottom: 1px solid #d5e5f7;
-        padding: 24px 0;
+        margin-top: 80px;
+        background: linear-gradient(180deg, #fff2f5, #f5f9fc);
+        padding: 60px 20px;
       }
-      .final-cta p { text-align: center; margin: 0 0 12px; font-size: clamp(1.2rem, 3.2vw, 1.8rem); font-weight: 700; color: var(--blue-dark); }
-      .final-cta .cta { width: min(100%, 520px); }
-      footer { text-align: center; padding: 14px; color: #55739e; font-size: .85rem; }
+      .final-cta p { text-align: center; margin: 0 0 24px; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: var(--blue-dark); }
+      .final-cta .cta { width: min(100%, 400px); }
+      
+      footer { text-align: center; padding: 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
 
+      /* レスポンシブ */
       @media (min-width: 768px) {
-        .hero { grid-template-columns: 1.1fr 1fr; padding: 22px; }
-        .cta-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .problem-grid,
-        .reason-grid,
-        .flow-grid { grid-template-columns: repeat(3, 1fr); }
-        .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
+        .hero { grid-template-columns: 1fr 1fr; padding: 48px; gap: 48px; }
+        .cta-stack { grid-template-columns: repeat(2, 1fr); }
+        .problem-grid, .reason-grid { grid-template-columns: repeat(3, 1fr); }
+        .flow-grid { grid-template-columns: repeat(2, 1fr); }
+        .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .couple-photo { margin-bottom: 0; }
+        .checklist { margin-bottom: 0; }
       }
       @media (min-width: 1024px) {
-        .problem-grid { grid-template-columns: repeat(3, 1fr); }
-        .reason-grid { grid-template-columns: repeat(3, 1fr); }
         .flow-grid { grid-template-columns: repeat(4, 1fr); }
         .plan-points { grid-template-columns: repeat(5, 1fr); }
       }
@@ -261,28 +313,28 @@
     </header>
 
     <main class="container">
-      <section class="hero card section" aria-labelledby="hero-title">
+      <section class="hero card section" aria-labelledby="hero-title" style="margin-top: 24px;">
         <div>
-          <p class="eyebrow">＼ 初めての探偵相談でも安心 ／</p>
+          <p class="eyebrow">初めての探偵相談でも安心</p>
           <h1 id="hero-title"><span class="accent">未婚カップル向け</span>の<br />やさしい調査サービス</h1>
-          <p class="lead">不安な気持ちに寄り添い、丁寧にサポート。<br />まずは「不安確認」「事実確認」から始められます。</p>
+          <p class="lead">不安な気持ちに寄り添い、丁寧にサポート。<br />まずは「事実確認」から始められます。</p>
 
           <div class="price-panel" aria-label="初回限定 激安プラン料金">
             <span class="label">初回限定</span>
             <p class="price-title">激安プラン</p>
-            <p class="price">5,000円 <small>/ 時間</small></p>
+            <p class="price">5,000<small>円 / 時間</small></p>
             <p class="price-note">1回のみ / 最大3時間 / 別途諸経費</p>
           </div>
 
           <div class="cta-stack">
-            <a class="cta" href="#contact">まずは無料で相談してみる</a>
-            <a class="cta secondary" href="#cheap-plan">激安プランを詳しく見る</a>
+            <a class="cta" href="#contact">まずは無料で相談する</a>
+            <a class="cta secondary" href="#cheap-plan">プラン詳細を見る</a>
           </div>
         </div>
         <div class="hero-visual">
           <img
             alt="不安を抱える女性と調査イメージのイラスト"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Crect width='640' height='420' fill='%23f5f9ff'/%3E%3Ccircle cx='130' cy='115' r='80' fill='%23dbe9ff'/%3E%3Ccircle cx='250' cy='95' r='55' fill='%23e8f2ff'/%3E%3Ccircle cx='380' cy='105' r='68' fill='%23dcecff'/%3E%3Crect x='360' y='145' width='220' height='210' rx='20' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ccircle cx='440' cy='215' r='45' fill='%23ffd8e4'/%3E%3Crect x='84' y='222' width='220' height='128' rx='16' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ctext x='110' y='298' fill='%232264bf' font-size='36' font-family='sans-serif'%3E%3Ft%3C/text%3E%3Ctext x='400' y='305' fill='%23123d80' font-size='28' font-family='sans-serif'%3E安心%3C/text%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Crect width='640' height='420' fill='%23f5f9ff'/%3E%3Ccircle cx='130' cy='115' r='80' fill='%23dbe9ff'/%3E%3Ccircle cx='250' cy='95' r='55' fill='%23e8f2ff'/%3E%3Ccircle cx='380' cy='105' r='68' fill='%23dcecff'/%3E%3Crect x='360' y='145' width='220' height='210' rx='20' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ccircle cx='440' cy='215' r='45' fill='%23ffd8e4'/%3E%3Crect x='84' y='222' width='220' height='128' rx='16' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ctext x='110' y='298' fill='%233b7bbd' font-size='36' font-family='sans-serif'%3E%3Ft%3C/text%3E%3Ctext x='400' y='305' fill='%231b375c' font-size='28' font-family='sans-serif'%3E安心%3C/text%3E%3C/svg%3E"
           />
           <p class="photo-note">📷 メインビジュアル写真（女性・カップル）をここに差し替え</p>
         </div>
@@ -309,7 +361,7 @@
       <section id="cheap-plan" class="section cheap-wrap card" aria-labelledby="cheap-title">
         <div class="cheap-head" id="cheap-title">初回限定 ★ 激安プラン</div>
         <div class="cheap-body">
-          <p class="price">5,000円 <small>/ 時間</small></p>
+          <p class="price" style="color: var(--blue);">5,000<small>円 / 時間</small></p>
           <div class="plan-points">
             <div class="point">未婚・未婚約者限定</div>
             <div class="point">最大3時間まで</div>
@@ -317,41 +369,50 @@
             <div class="point">写真と事実のみ報告</div>
             <div class="point">詳細レポートなし</div>
           </div>
-          <a class="cta" href="#contact">激安プランで相談する</a>
-          <p class="price-note" style="text-align:center;">1回のみ / 最大3時間 / 別途諸経費</p>
+          <a class="cta" href="#contact" style="max-width: 360px;">このプランで相談する</a>
+          <p class="price-note" style="margin-top:16px;">1回のみ / 最大3時間 / 別途諸経費</p>
         </div>
       </section>
 
       <section class="section" aria-labelledby="reason-title">
         <h2 id="reason-title" class="section-title">初めての方に選ばれる理由</h2>
         <div class="reason-grid">
-          <article class="reason-item card"><p>はじめてでも相談しやすい</p></article>
-          <article class="reason-item card"><p>秘密厳守で安心</p></article>
-          <article class="reason-item card"><p>明確な料金で安心</p></article>
+          <article class="reason-item card">
+            <div style="font-size: 2.5rem; margin-bottom: 8px;">🤝</div>
+            <p>はじめてでも<br>相談しやすい</p>
+          </article>
+          <article class="reason-item card">
+            <div style="font-size: 2.5rem; margin-bottom: 8px;">🔒</div>
+            <p>秘密厳守で<br>徹底した安心感</p>
+          </article>
+          <article class="reason-item card">
+            <div style="font-size: 2.5rem; margin-bottom: 8px;">💰</div>
+            <p>明朗会計で<br>わかりやすい料金</p>
+          </article>
         </div>
       </section>
 
       <section class="section card couple-plan" aria-labelledby="couple-title">
         <div>
           <h2 id="couple-title">カップルプラン</h2>
-          <p class="couple-price">3万円 / 5時間</p>
-          <div class="photo-slot couple-photo">📷 写真挿入エリア<small>カップルプラン用の人物写真</small></div>
-          <a class="cta secondary" href="#contact">カップルプランを相談する</a>
+          <p class="couple-price">30,000<span style="font-size: 0.4em;">円</span> <span style="font-size: 0.5em; color: #5a7596; font-weight:700;">/ 5時間</span></p>
+          <ul class="checklist">
+            <li>しっかり事実を確認したい方向け</li>
+            <li>基本単位は1時間から</li>
+            <li>詳細レポート追加 +40,000円</li>
+          </ul>
+          <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">カップルプランを相談する</a>
         </div>
-        <ul class="checklist">
-          <li>しっかり確認したい方向け</li>
-          <li>基本単位は1時間</li>
-          <li>詳細レポート追加 +4万円</li>
-        </ul>
+        <div class="photo-slot couple-photo" style="margin-top: 0;">📷 写真挿入エリア<small>カップルプラン用の人物写真</small></div>
       </section>
 
       <section class="section" aria-labelledby="flow-title">
         <h2 id="flow-title" class="section-title">ご依頼の流れ</h2>
         <div class="flow-grid">
-          <article class="flow-item card"><strong>1</strong><p>無料相談（電話・メール）</p></article>
-          <article class="flow-item card"><strong>2</strong><p>お見積り・プラン決定</p></article>
-          <article class="flow-item card"><strong>3</strong><p>調査実施</p></article>
-          <article class="flow-item card"><strong>4</strong><p>結果のご報告（写真・事実のみ）</p></article>
+          <article class="flow-item card"><strong>STEP 1</strong><p>無料相談<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">お電話またはメールにて</span></p></article>
+          <article class="flow-item card"><strong>STEP 2</strong><p>お見積り<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">最適なプランのご提案</span></p></article>
+          <article class="flow-item card"><strong>STEP 3</strong><p>調査実施<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">プロの探偵が確実に</span></p></article>
+          <article class="flow-item card"><strong>STEP 4</strong><p>ご報告<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">写真と事実をご提供</span></p></article>
         </div>
       </section>
 
@@ -359,16 +420,16 @@
         <h2 id="faq-title" class="section-title">よくあるご質問</h2>
         <div class="faq">
           <details>
-            <summary>Q. 本当にバレませんか？</summary>
-            <p>A. ご依頼内容は秘密厳守で対応します。相談内容は外部に共有しません。</p>
+            <summary>Q. 本当に相手にバレませんか？</summary>
+            <p>A. はい、プロの調査員が細心の注意を払って行います。また、ご相談いただいた内容や個人情報は徹底した秘密厳守で管理いたします。</p>
           </details>
           <details>
             <summary>Q. 何時間から依頼できますか？</summary>
-            <p>A. 激安プランは1時間から、最大3時間までご利用いただけます。</p>
+            <p>A. 「激安プラン」は1時間から、最大3時間までご利用いただけます。状況に合わせて最適な時間を無料相談でアドバイスいたします。</p>
           </details>
           <details>
-            <summary>Q. 相談だけでも大丈夫ですか？</summary>
-            <p>A. はい。無料相談のみでも問題ありません。無理な勧誘はありません。</p>
+            <summary>Q. まだ依頼するか迷っているのですが、相談だけでも大丈夫ですか？</summary>
+            <p>A. はい、もちろん大丈夫です。無料相談のみでも問題ありません。不安を煽ったり、無理な勧誘を行うことは一切ありませんのでご安心ください。</p>
           </details>
         </div>
       </section>
@@ -378,10 +439,10 @@
       <div class="container">
         <p>不安を、一人で抱えないでください。</p>
         <a class="cta" href="tel:0120123456">まずは無料で相談してみる</a>
-        <p style="font-size:.95rem;color:#5b779f;margin-top:10px;">相談無料・秘密厳守・無理な勧誘は一切ありません</p>
+        <p style="font-size: 0.95rem; color: #5a7596; margin-top: 16px; font-weight: 500;">相談無料・秘密厳守・無理な勧誘は一切ありません</p>
       </div>
     </section>
 
-    <footer>やさしい探偵相談所 / 未婚カップル向け調査サービス</footer>
+    <footer>&copy; やさしい探偵相談所 / 未婚カップル向け調査サービス</footer>
   </body>
 </html>
