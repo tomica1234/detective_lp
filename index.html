@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <title>やさしい探偵相談所 | 未婚カップル向け調査サービス</title>
     <style>
       :root {
@@ -19,7 +22,7 @@
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+        font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
         color: var(--text);
         background: linear-gradient(180deg, var(--bg), #fff 280px);
       }
@@ -80,6 +83,13 @@
         padding: 12px;
       }
       .hero-visual img { width: 100%; border-radius: 12px; display: block; }
+      .photo-note {
+        margin: 8px 0 0;
+        font-size: .82rem;
+        color: #3868aa;
+        text-align: center;
+        font-weight: 700;
+      }
       .price-panel {
         margin-top: 12px;
         border: 2px solid #f0cd8a;
@@ -140,6 +150,27 @@
       }
       .problem-item p,
       .reason-item p { margin: 6px 0 0; font-weight: 700; line-height: 1.6; }
+      .photo-slot {
+        margin-top: 10px;
+        min-height: 84px;
+        border: 2px dashed #a9c4ea;
+        border-radius: 12px;
+        background: #f4f9ff;
+        color: #2d63ab;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        font-size: .82rem;
+        font-weight: 700;
+        line-height: 1.5;
+        padding: 8px;
+      }
+      .photo-slot small {
+        display: block;
+        color: #4f79b3;
+        font-size: .75rem;
+        font-weight: 600;
+      }
 
       .cheap-wrap {
         border: 2px solid var(--blue);
@@ -168,6 +199,10 @@
       .couple-plan h2 { margin: 0; color: var(--blue-dark); font-size: clamp(1.45rem, 4vw, 2rem); }
       .couple-price { margin: 10px 0 8px; color: #1f5cad; font-weight: 800; font-size: clamp(2rem, 8vw, 3.8rem); }
       .checklist { margin: 0; padding-left: 20px; line-height: 1.9; font-weight: 700; }
+      .couple-photo {
+        margin-top: 12px;
+        min-height: 120px;
+      }
 
       .flow-item strong { color: var(--blue); font-size: 1.25rem; }
       .faq { display: grid; gap: 10px; }
@@ -245,15 +280,25 @@
             alt="不安を抱える女性と調査イメージのイラスト"
             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 420'%3E%3Crect width='640' height='420' fill='%23f5f9ff'/%3E%3Ccircle cx='130' cy='115' r='80' fill='%23dbe9ff'/%3E%3Ccircle cx='250' cy='95' r='55' fill='%23e8f2ff'/%3E%3Ccircle cx='380' cy='105' r='68' fill='%23dcecff'/%3E%3Crect x='360' y='145' width='220' height='210' rx='20' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ccircle cx='440' cy='215' r='45' fill='%23ffd8e4'/%3E%3Crect x='84' y='222' width='220' height='128' rx='16' fill='%23fff' stroke='%23bfd6f4'/%3E%3Ctext x='110' y='298' fill='%232264bf' font-size='36' font-family='sans-serif'%3E%3Ft%3C/text%3E%3Ctext x='400' y='305' fill='%23123d80' font-size='28' font-family='sans-serif'%3E安心%3C/text%3E%3C/svg%3E"
           />
+          <p class="photo-note">📷 メインビジュアル写真（女性・カップル）をここに差し替え</p>
         </div>
       </section>
 
       <section class="section" aria-labelledby="worry-title">
         <h2 id="worry-title" class="section-title">こんなお悩みありませんか？</h2>
         <div class="problem-grid">
-          <article class="problem-item card"><p>恋人の行動が気になる</p></article>
-          <article class="problem-item card"><p>信じたいけど不安を確認したい</p></article>
-          <article class="problem-item card"><p>二人の将来のために事実を知りたい</p></article>
+          <article class="problem-item card">
+            <p>恋人の行動が気になる</p>
+            <div class="photo-slot">📷 写真挿入エリア<small>悩んでいる人物の写真</small></div>
+          </article>
+          <article class="problem-item card">
+            <p>信じたいけど不安を確認したい</p>
+            <div class="photo-slot">📷 写真挿入エリア<small>確認・調査イメージの写真</small></div>
+          </article>
+          <article class="problem-item card">
+            <p>二人の将来のために事実を知りたい</p>
+            <div class="photo-slot">📷 写真挿入エリア<small>カップル写真</small></div>
+          </article>
         </div>
       </section>
 
@@ -286,6 +331,7 @@
         <div>
           <h2 id="couple-title">カップルプラン</h2>
           <p class="couple-price">3万円 / 5時間</p>
+          <div class="photo-slot couple-photo">📷 写真挿入エリア<small>カップルプラン用の人物写真</small></div>
           <a class="cta secondary" href="#contact">カップルプランを相談する</a>
         </div>
         <ul class="checklist">
