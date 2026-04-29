@@ -101,18 +101,13 @@
       .lead { margin: 16px 0 0; font-size: clamp(0.95rem, 2vw, 1.15rem); line-height: 1.8; color: #4a5c70; }
       .hero-visual {
         border-radius: 20px;
-        background: radial-gradient(circle at 50% 50%, #f0f6fc, #ffffff);
-        border: 2px dashed #c9dff5;
+        background: transparent;
         padding: 16px;
       }
       .hero-visual img { width: 100%; border-radius: 12px; display: block; }
-      .photo-note {
-        margin: 12px 0 0;
-        font-size: 0.85rem;
-        color: #5a7596;
-        text-align: center;
-        font-weight: 700;
-      }
+      .hero-visual img,
+      .photo-slot img,
+      .reason-icon { opacity: 0.75; }
 
       /* 料金パネル */
       .price-panel {
@@ -195,13 +190,19 @@
       }
       .problem-item p,
       .reason-item p { margin: 0; font-weight: 800; line-height: 1.5; color: var(--blue-dark); font-size: 1.05rem; }
+      .reason-icon {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        margin-bottom: 8px;
+      }
       
       .photo-slot {
         margin-top: 16px;
         min-height: 100px;
-        border: 2px dashed #c9dff5;
+        border: none;
         border-radius: 12px;
-        background: var(--bg);
+        background: transparent;
         color: var(--blue);
         display: grid;
         place-items: center;
@@ -216,7 +217,6 @@
         display: block;
         object-fit: cover;
       }
-      .photo-slot small { display: block; color: #5a7596; font-size: 0.75rem; font-weight: 500; margin-top: 4px; }
 
       /* 激安プラン セクション */
       .cheap-wrap {
@@ -342,7 +342,6 @@
             alt="不安を抱える女性の写真"
             src="static/woman.png"
           />
-          <p class="photo-note">使用画像: woman.png</p>
         </div>
       </section>
 
@@ -353,21 +352,18 @@
             <p>恋人の行動が気になる</p>
             <div class="photo-slot">
               <img src="static/memo.png" alt="悩んでメモを取る女性" />
-              <small>使用画像: memo.png</small>
             </div>
           </article>
           <article class="problem-item card">
             <p>信じたいけど不安を確認したい</p>
             <div class="photo-slot">
               <img src="static/camera.png" alt="カメラで調査を行うイメージ" />
-              <small>使用画像: camera.png</small>
             </div>
           </article>
           <article class="problem-item card">
             <p>二人の将来のために事実を知りたい</p>
             <div class="photo-slot">
               <img src="static/couple.png" alt="向き合うカップルの写真" />
-              <small>使用画像: couple.png</small>
             </div>
           </article>
         </div>
@@ -393,15 +389,15 @@
         <h2 id="reason-title" class="section-title">初めての方に選ばれる理由</h2>
         <div class="reason-grid">
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">🤝</div>
+            <img class="reason-icon" src="static/shake_hands.png" alt="握手して相談するイメージ" />
             <p>はじめてでも<br>相談しやすい</p>
           </article>
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">🔒</div>
+            <img class="reason-icon" src="static/lock.png" alt="秘密厳守のイメージ" />
             <p>秘密厳守で<br>徹底した安心感</p>
           </article>
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">💰</div>
+            <img class="reason-icon" src="static/money.png" alt="明朗会計のイメージ" />
             <p>明朗会計で<br>わかりやすい料金</p>
           </article>
         </div>
@@ -420,7 +416,6 @@
         </div>
         <div class="photo-slot couple-photo" style="margin-top: 0;">
           <img src="static/couple_night.png" alt="夜の街を歩くカップルの写真" />
-          <small>使用画像: couple_night.png</small>
         </div>
       </section>
 
