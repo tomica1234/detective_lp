@@ -195,6 +195,12 @@
       }
       .problem-item p,
       .reason-item p { margin: 0; font-weight: 800; line-height: 1.5; color: var(--blue-dark); font-size: 1.05rem; }
+      .reason-icon {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        margin-bottom: 8px;
+      }
       
       .photo-slot {
         margin-top: 16px;
@@ -393,15 +399,15 @@
         <h2 id="reason-title" class="section-title">初めての方に選ばれる理由</h2>
         <div class="reason-grid">
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">🤝</div>
+            <img class="reason-icon" src="static/shake_hands.png" alt="握手して相談するイメージ" />
             <p>はじめてでも<br>相談しやすい</p>
           </article>
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">🔒</div>
+            <img class="reason-icon" src="static/lock.png" alt="秘密厳守のイメージ" />
             <p>秘密厳守で<br>徹底した安心感</p>
           </article>
           <article class="reason-item card">
-            <div style="font-size: 2.5rem; margin-bottom: 8px;">💰</div>
+            <img class="reason-icon" src="static/money.png" alt="明朗会計のイメージ" />
             <p>明朗会計で<br>わかりやすい料金</p>
           </article>
         </div>
