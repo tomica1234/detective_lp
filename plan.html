@@ -295,11 +295,21 @@
         border: 1px solid #d2e4f4;
       }
       .finder-result {
-        margin-top: 20px;
-        background: #fff;
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0.96);
         border: 2px dashed #d5e6f7;
         border-radius: 14px;
-        padding: 18px;
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+        pointer-events: none;
+        transition: opacity 0.35s ease, transform 0.35s ease;
+      }
+      .finder-result.is-current {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
       }
       .finder-badge {
         display: inline-block;
@@ -385,11 +395,11 @@
               </label>
             </div>
           </div>
-        </div>
-        <div class="finder-result is-hidden" id="finderResult" aria-live="polite">
-          <span class="finder-badge">おすすめプラン</span>
-          <p class="finder-plan" id="planName">診断結果を表示します</p>
-          <p id="planReason">3つの質問への回答が完了すると表示されます。</p>
+          <div class="finder-result is-hidden" id="finderResult" aria-live="polite">
+            <span class="finder-badge">おすすめプラン</span>
+            <p class="finder-plan" id="planName">診断結果を表示します</p>
+            <p id="planReason">3つの質問への回答が完了すると表示されます。</p>
+          </div>
         </div>
       </section>
 
@@ -568,6 +578,7 @@
 
         const isDone = !!(status && goal && budget);
         resultEl.classList.toggle("is-hidden", !isDone);
+        resultEl.classList.toggle("is-current", isDone);
 
         if (!status) stepEl.textContent = "STEP 1 / 3";
         else if (!goal) stepEl.textContent = "STEP 2 / 3";
