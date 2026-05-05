@@ -270,41 +270,39 @@
           <div class="finder-q">
             <label for="status">Q1. ご関係は？</label>
             <select id="status">
+              <option value="single" selected>未婚・婚約なし</option>
               <option value="married">既婚・婚約中</option>
-              <option value="single">未婚・婚約なし</option>
             </select>
           </div>
           <div class="finder-q">
             <label for="goal">Q2. 何を優先したいですか？</label>
             <select id="goal">
+              <option value="quick" selected>まず短時間で状況確認したい</option>
               <option value="proof">しっかり証拠を押さえたい</option>
-              <option value="quick">まず短時間で状況確認したい</option>
             </select>
           </div>
           <div class="finder-q">
             <label for="budget">Q3. 予算のイメージは？</label>
             <select id="budget">
+              <option value="low" selected>まずは低予算から </option>
               <option value="high">3万円以上でもOK</option>
-              <option value="low">まずは低予算から</option>
             </select>
           </div>
         </div>
         <div class="finder-result" aria-live="polite">
           <span class="finder-badge">おすすめプラン</span>
-          <p class="finder-plan" id="planName">不倫プラン（40,000円）</p>
-          <p id="planReason">既婚・婚約中の方で、証拠重視の調査に向いた基本プランです。</p>
+          <p class="finder-plan" id="planName">不安解消プラン（5,000円 / h）</p>
+          <p id="planReason">未婚・婚約なしの方向け。まずは短時間で状況確認したい場合に最適です（1回のみ利用可）。</p>
         </div>
       </section>
 
       <section class="section card">
         <h2>全体・共通料金</h2>
-        <p class="note" style="text-align: center; margin-top: -12px; margin-bottom: 24px;">以下の項目はすべてのプランに無料で含まれます。</p>
+        <p class="note" style="text-align: center; margin-top: -12px; margin-bottom: 24px;">以下の項目は全てのプランにおいて別途料金がかかります。</p>
         <ul class="checklist checklist-blue" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
           <li>交通費</li>
           <li>ガソリン代</li>
           <li>駐車場代</li>
-          <li>1時間ごとの定期連絡</li>
-          <li>成果があった時の連絡</li>
         </ul>
         <div class="placeholder">画像準備中<br>調査車両・交通費の内訳がわかるイメージ図を掲載予定です。</div>
       </section>
@@ -371,7 +369,7 @@
           </div>
           <ul class="checklist">
             <li>基本単位を1時間に設定</li>
-            <li>キャンセル違約金は50%<br><span class="note">（激安プランから入った方は無料）</span></li>
+            <li>キャンセル違約金は50%<br><span class="note">（不安解消プランから入った方は無料）</span></li>
           </ul>
 
           <h3>延長の例</h3>
@@ -393,7 +391,7 @@
         </article>
 
         <article class="card">
-          <h2>激安プラン（再掲）</h2>
+          <h2>不安解消プラン</h2>
           <div class="plan-price">
             5,000<span style="font-size: 0.6em;">円 / h</span>
           </div>
@@ -436,7 +434,7 @@
         }
 
         if (goal === "quick" || budget === "low") {
-          planNameEl.textContent = "激安プラン（5,000円 / h）";
+          planNameEl.textContent = "不安解消プラン（5,000円 / h）";
           planReasonEl.textContent = "未婚・婚約なしの方向け。まずは短時間で状況確認したい場合に最適です（1回のみ利用可）。";
           return;
         }
