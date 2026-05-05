@@ -194,6 +194,67 @@
       .cheap-body { padding: 0 32px 32px; }
 
       footer { text-align: center; padding: 40px 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
+
+      .finder-card {
+        background: linear-gradient(135deg, #fff9fc, #f2f8ff);
+        border: 2px solid #f3d8e2;
+      }
+      .finder-intro {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .finder-grid {
+        display: grid;
+        gap: 16px;
+      }
+      @media (min-width: 840px) {
+        .finder-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+      .finder-q {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .finder-q label {
+        display: block;
+        font-weight: 800;
+        color: var(--blue-dark);
+        margin-bottom: 8px;
+      }
+      .finder-q select {
+        width: 100%;
+        border: 1px solid #c8daeb;
+        border-radius: 10px;
+        padding: 10px;
+        font: inherit;
+        color: #35526f;
+        background: #fff;
+      }
+      .finder-result {
+        margin-top: 20px;
+        background: #fff;
+        border: 2px dashed #d5e6f7;
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .finder-badge {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: #fff;
+        background: var(--blue);
+        border-radius: 999px;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+      }
+      .finder-plan {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+        color: var(--blue-dark);
+        font-weight: 800;
+      }
     </style>
   </head>
   <body>
@@ -217,6 +278,39 @@
 
     <main class="container">
       <h1 class="page-title">詳細な料金プランのご案内</h1>
+
+      <section class="section card finder-card">
+        <h2>まずは質問に答えて、あなたに合うプランを確認</h2>
+        <p class="finder-intro">上から3つの質問に答えると、おすすめプランを自動で表示します。</p>
+        <div class="finder-grid">
+          <div class="finder-q">
+            <label for="status">Q1. ご関係は？</label>
+            <select id="status">
+              <option value="married">既婚・婚約中</option>
+              <option value="single">未婚・婚約なし</option>
+            </select>
+          </div>
+          <div class="finder-q">
+            <label for="goal">Q2. 何を優先したいですか？</label>
+            <select id="goal">
+              <option value="proof">しっかり証拠を押さえたい</option>
+              <option value="quick">まず短時間で状況確認したい</option>
+            </select>
+          </div>
+          <div class="finder-q">
+            <label for="budget">Q3. 予算のイメージは？</label>
+            <select id="budget">
+              <option value="high">3万円以上でもOK</option>
+              <option value="low">まずは低予算から</option>
+            </select>
+          </div>
+        </div>
+        <div class="finder-result" aria-live="polite">
+          <span class="finder-badge">おすすめプラン</span>
+          <p class="finder-plan" id="planName">不倫プラン（40,000円）</p>
+          <p id="planReason">既婚・婚約中の方で、証拠重視の調査に向いた基本プランです。</p>
+        </div>
+      </section>
 
       <section class="section card">
         <h2>全体・共通料金</h2>
@@ -339,5 +433,39 @@
     </main>
 
     <footer>&copy; やさしい探偵相談所 / プラン詳細</footer>
+    <script>
+      const statusEl = document.getElementById("status");
+      const goalEl = document.getElementById("goal");
+      const budgetEl = document.getElementById("budget");
+      const planNameEl = document.getElementById("planName");
+      const planReasonEl = document.getElementById("planReason");
+
+      function updateRecommendation() {
+        const status = statusEl.value;
+        const goal = goalEl.value;
+        const budget = budgetEl.value;
+
+        if (status === "married") {
+          planNameEl.textContent = "不倫プラン（40,000円）";
+          planReasonEl.textContent = goal === "proof"
+            ? "既婚・婚約中の方で、証拠重視の調査に向いた基本プランです。"
+            : "既婚・婚約中の方は不倫プラン対象です。短時間確認でも10時間保証で柔軟に対応できます。";
+          return;
+        }
+
+        if (goal === "quick" || budget === "low") {
+          planNameEl.textContent = "激安プラン（5,000円 / h）";
+          planReasonEl.textContent = "未婚・婚約なしの方向け。まずは短時間で状況確認したい場合に最適です（1回のみ利用可）。";
+          return;
+        }
+
+        planNameEl.textContent = "カップルプラン（30,000円）";
+        planReasonEl.textContent = "未婚・婚約なしの方で、複数回に分けてしっかり調べたい方向けの標準プランです。";
+      }
+
+      [statusEl, goalEl, budgetEl].forEach((el) => {
+        el.addEventListener("change", updateRecommendation);
+      });
+    </script>
   </body>
 </html>
