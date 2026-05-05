@@ -278,7 +278,11 @@
         border-color: #90bae0;
         box-shadow: 0 14px 28px rgba(59, 123, 189, 0.16);
       }
-      .finder-result.is-hidden { display: none; }
+      .finder-result.is-hidden {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+        pointer-events: none;
+      }
       .finder-step {
         margin: 0 0 14px;
         color: #47688a;
@@ -326,6 +330,17 @@
         font-size: 1.2rem;
         color: var(--blue-dark);
         font-weight: 800;
+      }
+      .finder-reset {
+        margin-top: 14px;
+        border: 1px solid #b8d3ea;
+        background: #fff;
+        color: #31567a;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -399,6 +414,7 @@
             <span class="finder-badge">おすすめプラン</span>
             <p class="finder-plan" id="planName">診断結果を表示します</p>
             <p id="planReason">3つの質問への回答が完了すると表示されます。</p>
+            <button type="button" class="finder-reset" id="finderReset">もう一度診断する</button>
           </div>
         </div>
       </section>
@@ -531,6 +547,7 @@
       const resultEl = document.getElementById("finderResult");
       const planNameEl = document.getElementById("planName");
       const planReasonEl = document.getElementById("planReason");
+      const resetBtnEl = document.getElementById("finderReset");
 
       function getCheckedValue(name) {
         return document.querySelector(`input[name="${name}"]:checked`)?.value || null;
@@ -590,6 +607,13 @@
 
       [...statusEls, ...goalEls, ...budgetEls].forEach((el) => {
         el.addEventListener("change", refreshFlow);
+      });
+
+      resetBtnEl.addEventListener("click", () => {
+        [...statusEls, ...goalEls, ...budgetEls].forEach((el) => {
+          el.checked = false;
+        });
+        refreshFlow();
       });
 
       refreshFlow();
