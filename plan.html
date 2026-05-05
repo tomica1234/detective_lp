@@ -190,8 +190,20 @@
         font-weight: 800;
         padding: 16px;
         margin-bottom: 24px;
+        border-bottom: 2px dashed #c7dff4;
       }
       .cheap-body { padding: 0 32px 32px; }
+
+      .plan-emphasis {
+        background: linear-gradient(135deg, #ffffff, #f0f6fc);
+      }
+      .plan-price-blue {
+        background: #fff;
+        border-color: #d5e6f7;
+      }
+      .plan-price-blue small {
+        color: #5a7596;
+      }
 
       footer { text-align: center; padding: 40px 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
 
@@ -379,11 +391,11 @@
       </section>
 
       <section class="section grid grid-2">
-        <article class="card" style="background: linear-gradient(135deg, #ffffff, #f0f6fc);">
+        <article class="card plan-emphasis">
           <h2>カップルプラン</h2>
-          <div class="plan-price" style="background: #fff; border-color: #d5e6f7;">
+          <div class="plan-price plan-price-blue">
             <span style="color: var(--blue);">30,000</span><span style="font-size: 0.6em; color: var(--blue);">円</span>
-            <small style="color: #5a7596;">5時間 × 3回 / 未婚・未婚約者限定</small>
+            <small>5時間 × 3回 / 未婚・未婚約者限定</small>
           </div>
           <ul class="checklist checklist-blue">
             <li>基本単位を1時間に設定</li>
@@ -408,10 +420,10 @@
           <div class="placeholder">画像準備中<br>3回稼働の時間管理や延長パターンを示すタイムライン画像を掲載予定です。</div>
         </article>
 
-        <article class="card cheap-wrap">
+        <article class="card cheap-wrap plan-emphasis">
           <div class="cheap-head">激安プラン（再掲）</div>
           <div class="cheap-body">
-            <div class="plan-price" style="border: none; background: transparent; margin: 0 0 16px; padding: 0;">
+            <div class="plan-price" style="border: 2px dashed #d5e6f7; background: #fff; margin: 0 0 16px; padding: 14px;">
               <span style="color: var(--blue);">5,000</span><span style="font-size: 0.6em; color: var(--blue);">円 / h</span>
             </div>
             <ul class="checklist checklist-blue">
