@@ -207,14 +207,37 @@
         color: var(--blue-dark);
         margin-bottom: 8px;
       }
-      .finder-q select {
-        width: 100%;
+      .choice-group {
+        display: grid;
+        gap: 10px;
+      }
+      .choice-group input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .choice-chip {
+        display: block;
         border: 1px solid #c8daeb;
-        border-radius: 10px;
-        padding: 10px;
+        border-radius: 12px;
+        padding: 10px 12px;
         font: inherit;
+        font-weight: 700;
         color: #35526f;
-        background: #fff;
+        background: linear-gradient(180deg, #ffffff, #f8fbff);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .choice-chip:hover {
+        border-color: #8ab6df;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(59, 123, 189, 0.12);
+      }
+      .choice-group input:checked + .choice-chip {
+        border-color: var(--blue);
+        color: var(--blue-dark);
+        background: linear-gradient(135deg, #eaf4ff, #fff);
+        box-shadow: 0 8px 20px rgba(59, 123, 189, 0.16);
       }
       .finder-result {
         margin-top: 20px;
@@ -269,24 +292,42 @@
         <div class="finder-grid">
           <div class="finder-q">
             <label for="status">Q1. ご関係は？</label>
-            <select id="status">
-              <option value="single" selected>未婚・婚約なし</option>
-              <option value="married">既婚・婚約中</option>
-            </select>
+            <div class="choice-group" id="status" role="radiogroup" aria-label="ご関係">
+              <label>
+                <input type="radio" name="status" value="single" checked />
+                <span class="choice-chip">未婚・婚約なし</span>
+              </label>
+              <label>
+                <input type="radio" name="status" value="married" />
+                <span class="choice-chip">既婚・婚約中</span>
+              </label>
+            </div>
           </div>
           <div class="finder-q">
             <label for="goal">Q2. 何を優先したいですか？</label>
-            <select id="goal">
-              <option value="quick" selected>まず短時間で状況確認したい</option>
-              <option value="proof">しっかり証拠を押さえたい</option>
-            </select>
+            <div class="choice-group" id="goal" role="radiogroup" aria-label="優先したいこと">
+              <label>
+                <input type="radio" name="goal" value="quick" checked />
+                <span class="choice-chip">まず短時間で状況確認したい</span>
+              </label>
+              <label>
+                <input type="radio" name="goal" value="proof" />
+                <span class="choice-chip">しっかり証拠を押さえたい</span>
+              </label>
+            </div>
           </div>
           <div class="finder-q">
             <label for="budget">Q3. 予算のイメージは？</label>
-            <select id="budget">
-              <option value="low" selected>まずは低予算から </option>
-              <option value="high">3万円以上でもOK</option>
-            </select>
+            <div class="choice-group" id="budget" role="radiogroup" aria-label="予算イメージ">
+              <label>
+                <input type="radio" name="budget" value="low" checked />
+                <span class="choice-chip">まずは低予算から</span>
+              </label>
+              <label>
+                <input type="radio" name="budget" value="high" />
+                <span class="choice-chip">3万円以上でもOK</span>
+              </label>
+            </div>
           </div>
         </div>
         <div class="finder-result" aria-live="polite">
@@ -414,16 +455,16 @@
 
     <footer>&copy; やさしい探偵相談所 / プラン詳細</footer>
     <script>
-      const statusEl = document.getElementById("status");
-      const goalEl = document.getElementById("goal");
-      const budgetEl = document.getElementById("budget");
+      const statusEls = document.querySelectorAll('input[name="status"]');
+      const goalEls = document.querySelectorAll('input[name="goal"]');
+      const budgetEls = document.querySelectorAll('input[name="budget"]');
       const planNameEl = document.getElementById("planName");
       const planReasonEl = document.getElementById("planReason");
 
       function updateRecommendation() {
-        const status = statusEl.value;
-        const goal = goalEl.value;
-        const budget = budgetEl.value;
+        const status = document.querySelector('input[name="status"]:checked').value;
+        const goal = document.querySelector('input[name="goal"]:checked').value;
+        const budget = document.querySelector('input[name="budget"]:checked').value;
 
         if (status === "married") {
           planNameEl.textContent = "不倫プラン（40,000円）";
@@ -443,7 +484,7 @@
         planReasonEl.textContent = "未婚・婚約なしの方で、複数回に分けてしっかり調べたい方向けの標準プランです。";
       }
 
-      [statusEl, goalEl, budgetEl].forEach((el) => {
+      [...statusEls, ...goalEls, ...budgetEls].forEach((el) => {
         el.addEventListener("change", updateRecommendation);
       });
     </script>
