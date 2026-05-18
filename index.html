@@ -262,40 +262,49 @@
       /* フロー */
       .flow-wrap {
         position: relative;
-        padding: 30px 20px;
+        padding: 26px 18px;
         border-radius: 28px;
         background: linear-gradient(135deg, #ffffff, #f5faff);
         border: 1px solid #d7e6f6;
         box-shadow: 0 10px 28px rgba(59, 123, 189, 0.08);
       }
-      .flow-wrap::before {
-        content: "";
-        position: absolute;
-        inset: 30px 10% auto;
-        height: 4px;
-        background: linear-gradient(90deg, #b7d2ed, #6ea8e2, #b7d2ed);
-        border-radius: 999px;
-        display: none;
-      }
       .flow-item {
         text-align: left;
         position: relative;
-        padding: 22px 18px 20px;
+        padding: 18px 16px 18px 62px;
         border-radius: 16px;
         background: #fff;
         border: 1px solid var(--border);
         box-shadow: 0 8px 16px rgba(27, 55, 92, 0.06);
       }
+      .flow-item::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        top: -14px;
+        width: 2px;
+        height: calc(100% + 28px);
+        background: #cfe2f5;
+      }
+      .flow-item:first-child::before { top: 28px; height: calc(100% - 14px); }
+      .flow-item:last-child::before { height: 32px; }
       .flow-step {
-        display: inline-block;
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
         color: #fff;
         background: linear-gradient(135deg, #79aee6, var(--blue));
-        border-radius: 999px;
-        font-size: 0.78rem;
+        border-radius: 50%;
+        font-size: 0.68rem;
         font-weight: 800;
-        letter-spacing: 0.08em;
-        padding: 4px 11px;
-        margin-bottom: 10px;
+        letter-spacing: 0.02em;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 10px rgba(59, 123, 189, 0.25);
       }
       .flow-title {
         margin: 0 0 6px;
@@ -310,19 +319,6 @@
         line-height: 1.6;
         font-weight: 700;
       }
-      .flow-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        font-size: 1.2rem;
-        background: #edf5fe;
-        color: var(--blue);
-        border: 1px solid #d3e4f6;
-        margin-bottom: 12px;
-      }
-
       /* FAQ */
       .faq { display: grid; gap: 12px; }
       details {
@@ -403,13 +399,25 @@
         .cta-stack { grid-template-columns: repeat(2, 1fr); }
         .problem-grid, .reason-grid { grid-template-columns: repeat(3, 1fr); }
         .flow-grid { grid-template-columns: repeat(2, 1fr); }
-        .flow-wrap::before { display: block; }
+        .flow-item { padding: 20px 16px 18px; }
+        .flow-item::before { display: none; }
+        .flow-step { position: static; transform: none; margin-bottom: 12px; }
         .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .couple-photo { margin-bottom: 0; }
         .checklist { margin-bottom: 0; }
       }
       @media (min-width: 1024px) {
         .flow-grid { grid-template-columns: repeat(4, 1fr); }
+        .flow-wrap::before {
+          content: "";
+          position: absolute;
+          left: 8%;
+          right: 8%;
+          top: 54px;
+          height: 3px;
+          background: linear-gradient(90deg, #c3dcf2, #6ea8e2, #c3dcf2);
+          border-radius: 999px;
+        }
         .flow-item:not(:last-child)::after {
           content: "→";
           position: absolute;
@@ -546,26 +554,22 @@
         <div class="flow-wrap">
           <div class="flow-grid">
             <article class="flow-item">
-              <div class="flow-icon" aria-hidden="true">📞</div>
-              <span class="flow-step">STEP 1</span>
+              <span class="flow-step">1</span>
               <p class="flow-title">無料相談</p>
               <p class="flow-desc">お電話またはメールで、今のご不安を丁寧にお伺いします。</p>
             </article>
             <article class="flow-item">
-              <div class="flow-icon" aria-hidden="true">📝</div>
-              <span class="flow-step">STEP 2</span>
+              <span class="flow-step">2</span>
               <p class="flow-title">お見積り</p>
               <p class="flow-desc">状況に合わせた調査内容と料金を、わかりやすくご提案します。</p>
             </article>
             <article class="flow-item">
-              <div class="flow-icon" aria-hidden="true">🔍</div>
-              <span class="flow-step">STEP 3</span>
+              <span class="flow-step">3</span>
               <p class="flow-title">調査実施</p>
               <p class="flow-desc">経験豊富な調査員が、対象に配慮しながら慎重に対応します。</p>
             </article>
             <article class="flow-item">
-              <div class="flow-icon" aria-hidden="true">📁</div>
-              <span class="flow-step">STEP 4</span>
+              <span class="flow-step">4</span>
               <p class="flow-title">ご報告</p>
               <p class="flow-desc">証拠写真と事実経過をまとめた内容を、丁寧にご説明します。</p>
             </article>
