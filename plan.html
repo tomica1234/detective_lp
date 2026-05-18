@@ -176,6 +176,48 @@
         font-size: 2rem;
       }
 
+
+      .reward-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .reward-tile {
+        border: 1px solid #cfe0ef;
+        border-radius: 14px;
+        background: #f8fbff;
+        padding: 14px;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .reward-tile h3 {
+        margin: 0;
+      }
+      .reward-amount {
+        color: var(--pink);
+        font-weight: 800;
+      }
+      .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 18px;
+        font-size: 0.94rem;
+      }
+      .compare-table th,
+      .compare-table td {
+        border: 1px solid #d9e6f3;
+        padding: 10px;
+        vertical-align: top;
+      }
+      .compare-table th {
+        background: var(--blue-soft);
+        color: var(--blue-dark);
+        text-align: left;
+      }
+
       footer { text-align: center; padding: 40px 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
 
       /* プラン診断ツール */
@@ -427,7 +469,6 @@
           <li>ガソリン代</li>
           <li>駐車場代</li>
         </ul>
-        <img class="placeholder" src="static/plan-common-costs-overview.png" alt="調査車両・交通費の内訳イメージ" loading="lazy" />
       </section>
 
       <section class="section grid grid-2">
@@ -447,8 +488,6 @@
           <p style="font-size: 0.95rem; background: #f8fbff; padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
             指定された飲み屋の前で対象者が出てくるところを張り込み、誰といたかを報告。<br>数枚の写真と事実のみ伝達（詳細レポートなし）。
           </p>
-
-          <img class="placeholder" src="static/plan-anxiety-relief-stakeout.png" alt="指定場所での短時間張り込み例（店舗前・退出確認）" loading="lazy" />
         </article>
 
         <article class="card">
@@ -471,8 +510,6 @@
             <li>浪費・ギャンブル</li>
           </ul>
           <p class="note" style="margin-top: 8px;">※レポート対象外：出自に関わること / 家族構成</p>
-
-          <img class="placeholder" src="static/plan-couple-timeline.png" alt="3回稼働の時間管理や延長パターンのタイムライン" loading="lazy" />
         </article>
 
         <article class="card">
@@ -500,30 +537,46 @@
           <ul class="checklist checklist-blue">
             <li>打ち切り または 10時間追加（都度4万円）</li>
           </ul>
-
-          <img class="placeholder" src="static/plan-affair-flow-day1-day2-extension.png" alt="長時間調査プランの流れ（Day1/Day2/延長）" loading="lazy" />
         </article>
 
         <article class="card">
           <h2>成果報酬（不倫プラン）</h2>
-          <p class="note">※上位成果に含まれる項目を優先して整理します。<br>※「要検討」項目は事前相談で確定します。</p>
+          <p class="note">※成果は調査報告書と証拠データで確認します。※同日に複数成果が出た場合は上位成果を優先します。</p>
 
-          <ul class="checklist" style="margin-top: 16px;">
-            <li><span class="highlight">2万円：</span>異性とデート<br>
-              <span class="note">（2人きりでの行動を確認 / 店舗・駅・移動先など別場所での継続行動を撮影 / 写真・動画3点以上を時系列で記録 / 当日の行動ログをレポート記載）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">3万円：</span>身体接触の写真<br>
-              <span class="note">（手つなぎ・腕組み・キス・ハグ等の身体接触を明確に撮影 / 接触前後の流れがわかる連続カットを取得 / 撮影時刻・場所・状況コメント付きで提出）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">10万円：</span>第二の情報<br>
-              <span class="note">（交際相手に関する追加特定情報 / 氏名・居住エリア・勤務先候補などを裏取り付きで整理 / 取得経路と確度をレポート内に明記）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">70万円：</span>不貞行為の証拠<br>
-              <span class="note">（ホテル・自宅等への出入りを双方で確認 / 入室・退室の時間差と滞在時間を記録 / 同日内の行動導線を含めて不貞立証向けに報告書化）</span>
-            </li>
-          </ul>
+          <div class="reward-grid">
+            <section class="reward-tile">
+              <h3><span class="reward-amount">2万円</span>｜デート確認</h3>
+              <p>2人行動を複数地点で確認。</p>
+              <p class="note">写真・動画3点以上 / 時系列ログ付き</p>
+            </section>
+            <section class="reward-tile">
+              <h3><span class="reward-amount">3万円</span>｜身体接触</h3>
+              <p>手つなぎ・キス等を明確に撮影。</p>
+              <p class="note">前後の連続カット / 時刻と場所付き</p>
+            </section>
+            <section class="reward-tile">
+              <h3><span class="reward-amount">10万円</span>｜追加特定情報</h3>
+              <p>相手の追加情報を裏取りして整理。</p>
+              <p class="note">氏名・居住エリア・勤務先候補など</p>
+            </section>
+            <section class="reward-tile">
+              <h3><span class="reward-amount">70万円</span>｜不貞証拠</h3>
+              <p>ホテル・自宅出入りを双方確認。</p>
+              <p class="note">入退室時刻・滞在時間・導線付き</p>
+            </section>
+          </div>
 
-          <img class="placeholder" style="margin-top: 32px;" src="static/plan-result-reward-evidence-samples.png" alt="成果区分ごとの証拠サンプル比較（ぼかし入り）" loading="lazy" />
+          <table class="compare-table" aria-label="成果報酬の比較表">
+            <thead>
+              <tr><th>成果区分</th><th>主な確認内容</th><th>提出形式</th><th>報酬</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>デート確認</td><td>2人行動を複数地点で継続確認</td><td>写真・動画3点以上 + 時系列ログ</td><td>2万円</td></tr>
+              <tr><td>身体接触</td><td>手つなぎ・腕組み・キス等の接触確認</td><td>連続カット + 時刻/場所</td><td>3万円</td></tr>
+              <tr><td>追加特定情報</td><td>交際相手の追加情報を裏取り</td><td>情報整理シート + 根拠メモ</td><td>10万円</td></tr>
+              <tr><td>不貞証拠</td><td>ホテル・自宅への出入りと滞在確認</td><td>入退室記録 + 行動導線レポート</td><td>70万円</td></tr>
+            </tbody>
+          </table>
         </article>
       </section>
     </main>
