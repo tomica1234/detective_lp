@@ -75,12 +75,10 @@
       .contact strong { font-size: clamp(1.2rem, 2.6vw, 1.8rem); color: var(--blue); letter-spacing: 0.05em; font-weight: 800; }
 
       .segment-switch {
-        position: static;
-        margin: 0 auto 12px;
+        margin: 0 auto 24px;
         width: min(1000px, calc(100% - 40px));
-        display: grid;
-        gap: 8px;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        justify-content: flex-end; /* ボタンを右寄せに */
       }
       .segment-btn {
         display: inline-flex;
@@ -96,11 +94,11 @@
         background: #fff;
         color: var(--blue-dark);
         box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
       }
-      .segment-btn.active {
-        background: linear-gradient(135deg, #f285a0, var(--pink-deep));
-        border-color: transparent;
-        color: #fff;
+      .segment-btn:hover {
+        background: var(--blue-soft);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       }
       @media (max-width: 900px) {
         .segment-btn { text-align: center; }
@@ -446,10 +444,6 @@
     </style>
   </head>
   <body>
-    <div class="segment-switch" aria-label="対象切り替え">
-      <a class="segment-btn" href="affair.html">既婚者の方はこちら</a>
-      <a class="segment-btn active" href="index.html">未婚者の方はこちら</a>
-    </div>
     <header class="container top" aria-label="ヘッダー">
       <div class="brand-wrap">
         <div class="logo" aria-hidden="true">♡</div>
@@ -465,6 +459,10 @@
     </header>
 
     <main class="container">
+      <div class="segment-switch" aria-label="対象切り替え">
+        <a class="segment-btn" href="affair.html">既婚者の方はこちら ＞</a>
+      </div>
+
       <section class="hero card section" aria-labelledby="hero-title" style="margin-top: 24px;">
         <div>
           <p class="eyebrow">初めての探偵相談でも安心</p>
