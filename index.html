@@ -617,25 +617,66 @@
           <a class="cta" href="tel:0120123456">電話で無料相談する</a>
           <a class="cta line" href="https://line.me/R/ti/p/@example" target="_blank" rel="noopener noreferrer">LINEで無料相談する</a>
         </div>
-        <form class="contact-form" action="#" method="post" aria-label="無料相談フォーム">
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="フォーム送信用の非表示フレーム"></iframe>
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLScW0lnfG0tou0KwiXNGMOkZrCEJfNYql4y-GJ9on13VD-fafw/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          aria-label="無料相談フォーム"
+        >
           <p>フォームからのご相談は24時間受付中です。内容を確認後、担当者よりご連絡いたします。</p>
           <div class="form-grid">
             <label>お名前
-              <input type="text" name="name" autocomplete="name" required />
+              <input type="text" name="entry.856050541" autocomplete="name" required />
             </label>
             <label>メールアドレス
-              <input type="email" name="email" autocomplete="email" required />
+              <input type="email" name="entry.1824185561" autocomplete="email" required />
             </label>
             <label>ご相談内容
-              <textarea name="message" placeholder="ご不安なこと・確認したいことをご記入ください。" required></textarea>
+              <textarea name="entry.917596654" placeholder="ご不安なこと・確認したいことをご記入ください。" required></textarea>
             </label>
           </div>
-          <button class="form-submit" type="submit">フォームから相談を送る</button>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
+          <button class="form-submit" id="form-submit" type="submit">フォームから相談を送る</button>
         </form>
+        <div id="form-thanks" class="contact-form" style="display:none;text-align:center;">
+          <p style="font-size:1.1rem;font-weight:700;color:#1b375c;">ありがとうございます。送信を受け付けました。</p>
+          <p style="margin-top:8px;">担当者が内容を確認し、順次ご連絡いたします。</p>
+        </div>
         <p style="font-size: 0.95rem; color: #5a7596; margin-top: 16px; font-weight: 500;">相談無料・秘密厳守・無理な勧誘は一切ありません</p>
       </div>
     </section>
 
     <footer>&copy; やさしい探偵相談所 / 未婚カップル向け調査サービス<br /><a href="legal.html" style="color:#5a7596;text-decoration:underline;">特商法・プライバシーポリシー・探偵業届出の掲示</a></footer>
+
+    <script>
+      let submitted = false;
+      const contactForm = document.getElementById('contact-form');
+      const formThanks = document.getElementById('form-thanks');
+      const hiddenIframe = document.getElementById('hidden_iframe');
+      const submitButton = document.getElementById('form-submit');
+
+      if (contactForm && hiddenIframe && formThanks && submitButton) {
+        contactForm.addEventListener('submit', (event) => {
+          const honeypot = contactForm.querySelector('input[name="company"]');
+          if (honeypot && honeypot.value) {
+            event.preventDefault();
+            return;
+          }
+          submitted = true;
+          submitButton.disabled = true;
+          submitButton.textContent = '送信中…';
+        });
+
+        hiddenIframe.addEventListener('load', () => {
+          if (!submitted) return;
+          contactForm.style.display = 'none';
+          formThanks.style.display = 'block';
+        });
+      }
+    </script>
+
   </body>
 </html>
