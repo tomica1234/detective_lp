@@ -260,16 +260,66 @@
       .couple-photo { min-height: 140px; margin-bottom: 24px; }
 
       /* フロー */
-      .flow-item { text-align: left; position: relative; padding-left: 20px; }
-      .flow-item strong { 
-        display: block; 
-        color: var(--blue); 
-        font-size: 1.4rem; 
-        font-weight: 900; 
-        margin-bottom: 8px;
-        opacity: 0.4;
+      .flow-wrap {
+        position: relative;
+        padding: 26px 18px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #ffffff, #f5faff);
+        border: 1px solid #d7e6f6;
+        box-shadow: 0 10px 28px rgba(59, 123, 189, 0.08);
       }
-
+      .flow-item {
+        text-align: left;
+        position: relative;
+        padding: 18px 16px 18px 62px;
+        border-radius: 16px;
+        background: #fff;
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 16px rgba(27, 55, 92, 0.06);
+      }
+      .flow-item::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        top: -14px;
+        width: 2px;
+        height: calc(100% + 28px);
+        background: #cfe2f5;
+      }
+      .flow-item:first-child::before { top: 28px; height: calc(100% - 14px); }
+      .flow-item:last-child::before { height: 32px; }
+      .flow-step {
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, #79aee6, var(--blue));
+        border-radius: 50%;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 10px rgba(59, 123, 189, 0.25);
+      }
+      .flow-title {
+        margin: 0 0 6px;
+        color: var(--blue-dark);
+        font-size: 1.12rem;
+        font-weight: 800;
+      }
+      .flow-desc {
+        margin: 0;
+        color: #5a7596;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+      .flow-grid { gap: 14px; }
       /* FAQ */
       .faq { display: grid; gap: 12px; }
       details {
@@ -349,13 +399,11 @@
         .hero { grid-template-columns: 1fr 1fr; padding: 48px; gap: 48px; }
         .cta-stack { grid-template-columns: repeat(2, 1fr); }
         .problem-grid, .reason-grid { grid-template-columns: repeat(3, 1fr); }
-        .flow-grid { grid-template-columns: repeat(2, 1fr); }
         .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .couple-photo { margin-bottom: 0; }
         .checklist { margin-bottom: 0; }
       }
       @media (min-width: 1024px) {
-        .flow-grid { grid-template-columns: repeat(4, 1fr); }
         .plan-points { grid-template-columns: repeat(5, 1fr); }
       }
     </style>
@@ -478,11 +526,29 @@
 
       <section class="section" aria-labelledby="flow-title">
         <h2 id="flow-title" class="section-title">ご依頼の流れ</h2>
-        <div class="flow-grid">
-          <article class="flow-item card"><strong>STEP 1</strong><p>無料相談<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">お電話またはメールにて</span></p></article>
-          <article class="flow-item card"><strong>STEP 2</strong><p>お見積り<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">最適なプランのご提案</span></p></article>
-          <article class="flow-item card"><strong>STEP 3</strong><p>調査実施<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">プロの探偵が確実に</span></p></article>
-          <article class="flow-item card"><strong>STEP 4</strong><p>ご報告<br><span style="font-size:0.85em;color:#5a7596;font-weight:normal;">写真と事実をご提供</span></p></article>
+        <div class="flow-wrap">
+          <div class="flow-grid">
+            <article class="flow-item">
+              <span class="flow-step">1</span>
+              <p class="flow-title">無料相談</p>
+              <p class="flow-desc">お電話またはメールで、今のご不安を丁寧にお伺いします。</p>
+            </article>
+            <article class="flow-item">
+              <span class="flow-step">2</span>
+              <p class="flow-title">お見積り</p>
+              <p class="flow-desc">状況に合わせた調査内容と料金を、わかりやすくご提案します。</p>
+            </article>
+            <article class="flow-item">
+              <span class="flow-step">3</span>
+              <p class="flow-title">調査実施</p>
+              <p class="flow-desc">経験豊富な調査員が、対象に配慮しながら慎重に対応します。</p>
+            </article>
+            <article class="flow-item">
+              <span class="flow-step">4</span>
+              <p class="flow-title">ご報告</p>
+              <p class="flow-desc">証拠写真と事実経過をまとめた内容を、丁寧にご説明します。</p>
+            </article>
+          </div>
         </div>
       </section>
 
