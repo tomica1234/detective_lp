@@ -413,6 +413,18 @@
         background: #fdfefe;
       }
       .form-grid textarea { min-height: 120px; resize: vertical; }
+      .thanks-card {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      .thanks-card.is-visible {
+        animation: thanksPop 520ms ease forwards;
+      }
+      @keyframes thanksPop {
+        0% { opacity: 0; transform: translateY(14px) scale(0.97); }
+        70% { opacity: 1; transform: translateY(-2px) scale(1.01); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
       .form-submit {
         margin-top: 14px;
         width: 100%;
@@ -641,9 +653,9 @@
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
           <button class="form-submit" id="form-submit" type="submit">フォームから相談を送る</button>
         </form>
-        <div id="form-thanks" class="contact-form" style="display:none;text-align:center;">
+        <div id="form-thanks" class="contact-form thanks-card" style="display:none;text-align:center;" role="status" aria-live="polite">
           <p style="font-size:1.1rem;font-weight:700;color:#1b375c;">ありがとうございます。送信を受け付けました。</p>
-          <p style="margin-top:8px;">担当者が内容を確認し、順次ご連絡いたします。</p>
+          <p style="margin-top:8px;">内容を確認のうえ、<strong>ご入力いただいたメールアドレス宛に返信</strong>いたします。</p>
         </div>
         <p style="font-size: 0.95rem; color: #5a7596; margin-top: 16px; font-weight: 500;">相談無料・秘密厳守・無理な勧誘は一切ありません</p>
       </div>
@@ -683,6 +695,7 @@
           if (!submitted) return;
           contactForm.style.display = 'none';
           formThanks.style.display = 'block';
+          formThanks.classList.add('is-visible');
         });
       }
     </script>
