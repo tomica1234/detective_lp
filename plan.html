@@ -155,25 +155,16 @@
       .note { font-size: 0.85rem; color: #8ba1b8; }
       .highlight { color: var(--pink); font-weight: 800; }
 
-      /* 画像プレースホルダー */
-      .placeholder {
+      /* プラン画像 */
+      .plan-image {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         margin-top: 24px;
-        background: var(--blue-soft);
-        border: 2px dashed #b5d0ea;
+        border: 1px solid var(--border);
         border-radius: 16px;
-        padding: 32px 24px;
-        text-align: center;
-        color: #5a7596;
-        font-size: 0.9rem;
-        font-weight: 700;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-      }
-      .placeholder::before {
-        content: "🖼️";
-        font-size: 2rem;
+        background: #fff;
       }
 
       footer { text-align: center; padding: 40px 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
@@ -427,7 +418,7 @@
           <li>ガソリン代</li>
           <li>駐車場代</li>
         </ul>
-        <img class="placeholder" src="static/plan-common-costs-overview.png" alt="調査車両・交通費の内訳イメージ" loading="lazy" />
+        <img class="plan-image" src="static/plan-common-costs-overview.png" alt="調査車両・交通費の内訳イメージ" loading="lazy" />
       </section>
 
       <section class="section grid grid-2">
@@ -448,7 +439,7 @@
             指定された飲み屋の前で対象者が出てくるところを張り込み、誰といたかを報告。<br>数枚の写真と事実のみ伝達（詳細レポートなし）。
           </p>
 
-          <img class="placeholder" src="static/plan-anxiety-relief-stakeout.png" alt="指定場所での短時間張り込み例（店舗前・退出確認）" loading="lazy" />
+          <img class="plan-image" src="static/plan-anxiety-relief-stakeout.png" alt="指定場所での短時間張り込み例（店舗前・退出確認）" loading="lazy" />
         </article>
 
         <article class="card">
@@ -472,7 +463,7 @@
           </ul>
           <p class="note" style="margin-top: 8px;">※レポート対象外：出自に関わること / 家族構成</p>
 
-          <img class="placeholder" src="static/plan-couple-timeline.png" alt="3回稼働の時間管理や延長パターンのタイムライン" loading="lazy" />
+          <img class="plan-image" src="static/plan-couple-timeline.png" alt="3回稼働の時間管理や延長パターンのタイムライン" loading="lazy" />
         </article>
 
         <article class="card">
@@ -501,7 +492,7 @@
             <li>打ち切り または 10時間追加（都度4万円）</li>
           </ul>
 
-          <img class="placeholder" src="static/plan-affair-flow-day1-day2-extension.png" alt="長時間調査プランの流れ（Day1/Day2/延長）" loading="lazy" />
+          <img class="plan-image" src="static/plan-affair-flow-day1-day2-extension.png" alt="長時間調査プランの流れ（Day1/Day2/延長）" loading="lazy" />
         </article>
 
         <article class="card">
@@ -523,7 +514,7 @@
             </li>
           </ul>
 
-          <img class="placeholder" style="margin-top: 32px;" src="static/plan-result-reward-evidence-samples.png" alt="成果区分ごとの証拠サンプル比較（ぼかし入り）" loading="lazy" />
+          <img class="plan-image" style="margin-top: 32px;" src="static/plan-result-reward-evidence-samples.png" alt="成果区分ごとの証拠サンプル比較（ぼかし入り）" loading="lazy" />
         </article>
       </section>
     </main>
