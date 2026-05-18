@@ -319,6 +319,7 @@
         line-height: 1.6;
         font-weight: 700;
       }
+      .flow-grid { gap: 14px; }
       /* FAQ */
       .faq { display: grid; gap: 12px; }
       details {
@@ -398,37 +399,11 @@
         .hero { grid-template-columns: 1fr 1fr; padding: 48px; gap: 48px; }
         .cta-stack { grid-template-columns: repeat(2, 1fr); }
         .problem-grid, .reason-grid { grid-template-columns: repeat(3, 1fr); }
-        .flow-grid { grid-template-columns: repeat(2, 1fr); }
-        .flow-item { padding: 20px 16px 18px; }
-        .flow-item::before { display: none; }
-        .flow-step { position: static; transform: none; margin-bottom: 12px; }
         .couple-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .couple-photo { margin-bottom: 0; }
         .checklist { margin-bottom: 0; }
       }
       @media (min-width: 1024px) {
-        .flow-grid { grid-template-columns: repeat(4, 1fr); }
-        .flow-wrap::before {
-          content: "";
-          position: absolute;
-          left: 8%;
-          right: 8%;
-          top: 54px;
-          height: 3px;
-          background: linear-gradient(90deg, #c3dcf2, #6ea8e2, #c3dcf2);
-          border-radius: 999px;
-        }
-        .flow-item:not(:last-child)::after {
-          content: "→";
-          position: absolute;
-          right: -18px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #78aee5;
-          font-size: 1.4rem;
-          font-weight: 800;
-          z-index: 2;
-        }
         .plan-points { grid-template-columns: repeat(5, 1fr); }
       }
     </style>
