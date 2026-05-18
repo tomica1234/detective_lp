@@ -86,11 +86,11 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 60px;
-        width: 220px;
-        padding: 10px 14px;
+        min-height: 48px;
+        width: 170px;
+        padding: 8px 12px;
         border-radius: 999px;
-        font-size: 0.82rem;
+        font-size: 0.74rem;
         font-weight: 800;
         border: 1px solid var(--border);
         background: #fff;
@@ -139,7 +139,7 @@
         background: transparent;
         padding: 16px;
       }
-      .hero-visual img { width: 100%; border-radius: 12px; display: block; }
+      .hero-visual img { width: 100%; max-width: 420px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
       .hero-visual img,
       .photo-slot img,
       .reason-icon { opacity: 0.75; }
@@ -250,13 +250,10 @@
       }
       .photo-slot img {
         width: 100%;
+        aspect-ratio: 4 / 3;
         border-radius: 10px;
         display: block;
         object-fit: cover;
-      }
-      .problem-item:last-child .photo-slot img {
-        width: 88%;
-        margin: 0 auto;
       }
 
       /* 不安解消プラン セクション */
