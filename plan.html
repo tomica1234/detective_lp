@@ -366,6 +366,69 @@
         font-weight: 700;
         cursor: pointer;
       }
+
+      .contact-options { display: grid; gap: 14px; justify-items: center; margin-bottom: 20px; }
+      .cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 54px;
+        width: min(100%, 400px);
+        border-radius: 999px;
+        border: none;
+        font-weight: 800;
+        font-size: 1rem;
+        color: #fff;
+        padding: 0 24px;
+        text-align: center;
+        background: linear-gradient(135deg, #f285a0, var(--pink-deep));
+        box-shadow: 0 8px 20px rgba(204, 77, 110, 0.25);
+      }
+      .cta.line {
+        background: linear-gradient(135deg, #35c85a, #06c755);
+        box-shadow: 0 8px 20px rgba(6, 199, 85, 0.28);
+      }
+      .contact-form {
+        width: min(100%, 620px);
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 10px 22px rgba(27, 55, 92, 0.08);
+      }
+      .contact-form p {
+        margin: 0 0 16px;
+        text-align: left;
+        font-size: 0.95rem;
+        color: #4a5c70;
+      }
+      .form-grid { display: grid; gap: 12px; }
+      .form-grid label { font-size: 0.88rem; font-weight: 700; color: var(--blue-dark); }
+      .form-grid input,
+      .form-grid textarea {
+        width: 100%;
+        margin-top: 6px;
+        border: 1px solid #cddced;
+        border-radius: 10px;
+        padding: 11px 12px;
+        font: inherit;
+        background: #fdfefe;
+      }
+      .form-grid textarea { min-height: 120px; resize: vertical; }
+      .form-submit {
+        margin-top: 14px;
+        width: 100%;
+        min-height: 54px;
+        border-radius: 999px;
+        border: none;
+        font: inherit;
+        font-weight: 800;
+        color: #fff;
+        background: linear-gradient(135deg, #6aa5f0, var(--blue));
+        box-shadow: 0 8px 20px rgba(59, 123, 189, 0.2);
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -533,9 +596,33 @@
           </div>
         </article>
       </section>
+
+      <section class="section card" aria-label="無料相談">
+        <h2>不安を、一人で抱えないでください。</h2>
+        <div class="contact-options">
+          <a class="cta" href="tel:0120123456">電話で無料相談する</a>
+          <a class="cta line" href="https://line.me/R/ti/p/@example" target="_blank" rel="noopener noreferrer">LINEで無料相談する</a>
+        </div>
+        <form class="contact-form" action="#" method="post" aria-label="無料相談フォーム">
+          <p>フォームからのご相談は24時間受付中です。内容を確認後、担当者よりご連絡いたします。</p>
+          <div class="form-grid">
+            <label>お名前
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>メールアドレス
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>ご相談内容
+              <textarea name="message" placeholder="ご不安なこと・確認したいことをご記入ください。" required></textarea>
+            </label>
+          </div>
+          <button class="form-submit" type="submit">フォームから相談を送る</button>
+        </form>
+        <p style="font-size: 0.95rem; color: #5a7596; margin-top: 16px; font-weight: 500; text-align: center;">相談無料・秘密厳守・無理な勧誘は一切ありません</p>
+      </section>
     </main>
 
-    <footer>&copy; やさしい探偵相談所 / プラン詳細</footer>
+    <footer>&copy; やさしい探偵相談所 / 既婚者向け・不倫調査サービス<br /><a href="legal.html" style="color:#5a7596;text-decoration:underline;">特商法・プライバシーポリシー・探偵業届出の掲示</a></footer>
     <script>
       const statusEls = document.querySelectorAll('input[name="status"]');
       const goalEls = document.querySelectorAll('input[name="goal"]');
