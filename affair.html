@@ -83,7 +83,11 @@
         gap: 10px;
       }
       .segment-btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60px;
+        width: 220px;
         padding: 10px 14px;
         border-radius: 999px;
         font-size: 0.82rem;
@@ -198,6 +202,7 @@
         box-shadow: 0 12px 24px rgba(204, 77, 110, 0.35);
       }
       .cta-primary { white-space: nowrap; }
+      .cta-uniform { width: min(100%, 480px) !important; max-width: 480px !important; }
       .cta.secondary {
         background: linear-gradient(135deg, #6aa5f0, var(--blue));
         box-shadow: 0 8px 20px rgba(59, 123, 189, 0.25);
@@ -463,16 +468,16 @@
           <h1 id="hero-title"><span class="accent hero-title-line">既婚者向け</span><br /><span class="hero-title-main">慎重な不倫調査サービス</span></h1>
           <p class="lead">不安な気持ちに寄り添い、丁寧にサポート。<br />まずは「事実確認」から始められます。</p>
 
-          <div class="price-panel" aria-label="初回限定 不安解消プラン料金">
-            <span class="label">初回限定</span>
-            <p class="price-title">不安解消プラン</p>
-            <p class="price">5,000<small>円 / 時間</small></p>
-            <p class="price-note">1回のみ / 最大3時間 / 別途諸経費</p>
+          <div class="price-panel" aria-label="不倫調査プラン料金">
+            <span class="label">人気プラン</span>
+            <p class="price-title">不倫調査プラン</p>
+            <p class="price">30,000<small>円 / 5時間</small></p>
+            <p class="price-note">延長1時間ごとの調査にも対応 / 別途諸経費</p>
           </div>
 
           <div class="cta-stack">
             <a class="cta cta-primary" href="#contact">まずは無料相談</a>
-            <a class="cta secondary" href="plan.html">プラン詳細を見る</a>
+            <a class="cta secondary" href="#affair-plan">不倫調査プランを見る</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -487,39 +492,23 @@
         <h2 id="worry-title" class="section-title">こんなお悩みありませんか？</h2>
         <div class="problem-grid">
           <article class="problem-item card">
-            <p>恋人の行動が気になる</p>
+            <p>配偶者の行動が気になる</p>
             <div class="photo-slot">
               <img src="static/memo.png" alt="悩んでメモを取る女性" />
             </div>
           </article>
           <article class="problem-item card">
-            <p>信じたいけど不安を確認したい</p>
+            <p>関係修復のために事実を確認したい</p>
             <div class="photo-slot">
               <img src="static/camera.png" alt="カメラで調査を行うイメージ" />
             </div>
           </article>
           <article class="problem-item card">
-            <p>二人の将来のために事実を知りたい</p>
+            <p>今後の判断材料として証拠を残したい</p>
             <div class="photo-slot">
               <img src="static/couple.png" alt="夫婦関係の悩みイメージ写真" />
             </div>
           </article>
-        </div>
-      </section>
-
-      <section id="cheap-plan" class="section cheap-wrap card" aria-labelledby="cheap-title">
-        <div class="cheap-head" id="cheap-title">初回限定  不安解消プラン</div>
-        <div class="cheap-body">
-          <p class="price" style="color: var(--blue);">5,000<small>円 / 時間</small></p>
-          <div class="plan-points">
-            <div class="point">既婚者のご相談に特化</div>
-            <div class="point">最大3時間まで</div>
-            <div class="point">指定場所で張り込み</div>
-            <div class="point">写真と事実のみ報告</div>
-            <div class="point">詳細レポートなし</div>
-          </div>
-          <a class="cta" href="#contact" style="max-width: 360px;">このプランで相談する</a>
-          <p class="price-note" style="margin-top:16px;">1回のみ / 最大3時間 / 別途諸経費</p>
         </div>
       </section>
 
@@ -541,7 +530,7 @@
         </div>
       </section>
 
-      <section class="section card couple-plan" aria-labelledby="couple-title">
+      <section id="affair-plan" class="section card couple-plan" aria-labelledby="couple-title">
         <div>
           <h2 id="couple-title">不倫調査プラン</h2>
           <p class="couple-price">30,000<span style="font-size: 0.4em;">円</span> <span style="font-size: 0.5em; color: #5a7596; font-weight:700;">/ 5時間</span></p>
@@ -550,7 +539,7 @@
             <li>基本単位は1時間から</li>
             <li>詳細レポート追加 +40,000円</li>
           </ul>
-          <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">不倫調査プランを相談する</a>
+          <a class="cta secondary cta-uniform" href="#contact">不倫調査プランを相談する</a>
         </div>
         <div class="photo-slot couple-photo" style="margin-top: 0;">
           <img src="static/couple_night.png" alt="夜の張り込みイメージ写真" />
@@ -594,7 +583,7 @@
           </details>
           <details>
             <summary>Q. 何時間から依頼できますか？</summary>
-            <p>A. 「不安解消プラン」は1時間から、最大3時間までご利用いただけます。状況に合わせて最適な時間を無料相談でアドバイスいたします。</p>
+            <p>A. 不倫調査プランは5時間単位からご依頼いただけます。状況に合わせた時間設計は無料相談でご案内します。</p>
           </details>
           <details>
             <summary>Q. まだ依頼するか迷っているのですが、相談だけでも大丈夫ですか？</summary>

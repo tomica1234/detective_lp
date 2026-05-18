@@ -83,7 +83,11 @@
         gap: 10px;
       }
       .segment-btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60px;
+        width: 220px;
         padding: 10px 14px;
         border-radius: 999px;
         font-size: 0.82rem;
@@ -198,6 +202,7 @@
         box-shadow: 0 12px 24px rgba(204, 77, 110, 0.35);
       }
       .cta-primary { white-space: nowrap; }
+      .cta-uniform { width: min(100%, 480px) !important; max-width: 480px !important; }
       .cta.secondary {
         background: linear-gradient(135deg, #6aa5f0, var(--blue));
         box-shadow: 0 8px 20px rgba(59, 123, 189, 0.25);
@@ -518,7 +523,7 @@
             <div class="point">写真と事実のみ報告</div>
             <div class="point">詳細レポートなし</div>
           </div>
-          <a class="cta" href="#contact" style="max-width: 360px;">このプランで相談する</a>
+          <a class="cta cta-uniform" href="#contact">このプランで相談する</a>
           <p class="price-note" style="margin-top:16px;">1回のみ / 最大3時間 / 別途諸経費</p>
         </div>
       </section>
@@ -550,7 +555,7 @@
             <li>基本単位は1時間から</li>
             <li>詳細レポート追加 +40,000円</li>
           </ul>
-          <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">カップルプランを相談する</a>
+          <a class="cta secondary cta-uniform" href="#contact">カップルプランを相談する</a>
         </div>
         <div class="photo-slot couple-photo" style="margin-top: 0;">
           <img src="static/couple_night.png" alt="夜の街を歩くカップルの写真" />
