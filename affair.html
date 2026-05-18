@@ -6,20 +6,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet" />
-    <title>やさしい探偵相談所 | 未婚カップル向け調査サービス</title>
+    <title>やさしい探偵相談所 | 既婚者向け・不倫調査サービス</title>
     <style>
       :root {
         /* 色味を少し柔らかく洗練されたトーンに調整 */
-        --bg: #f5f9fc;
+        --bg: #f8f4fa;
         --card: #ffffff;
-        --blue: #3b7bbd;
-        --blue-dark: #1b375c;
-        --blue-soft: #f0f6fc;
-        --pink: #e66a89;
-        --pink-deep: #cc4d6e;
+        --blue: #7a4bb8;
+        --blue-dark: #3c245c;
+        --blue-soft: #f4ebfb;
+        --pink: #ba4b7a;
+        --pink-deep: #8f2e63;
         --text: #2c3e50;
-        --border: #e2ecf5;
-        --shadow: rgba(59, 123, 189, 0.06);
+        --border: #eadff4;
+        --shadow: rgba(122, 75, 184, 0.08);
       }
       * { box-sizing: border-box; }
       body {
@@ -28,7 +28,7 @@
         color: var(--text);
         background: var(--bg);
         /* 背景グラデーションを少し滑らかに */
-        background: linear-gradient(180deg, #eaf2fa 0%, var(--bg) 400px);
+        background: linear-gradient(180deg, #f3eafa 0%, var(--bg) 400px);
         line-height: 1.6;
       }
       a { color: inherit; text-decoration: none; }
@@ -280,7 +280,7 @@
         color: var(--blue-dark);
       }
 
-      /* カップルプラン セクション */
+      /* 不倫調査プラン セクション */
       .couple-plan { padding: 32px 24px; background: linear-gradient(135deg, #ffffff, #f0f6fc); border: 1px solid #d5e6f7; }
       .couple-plan h2 { margin: 0; color: var(--blue-dark); font-size: clamp(1.4rem, 4vw, 1.8rem); }
       .couple-price { margin: 12px 0 16px; color: var(--blue); font-weight: 800; font-size: clamp(2rem, 8vw, 3.2rem); line-height: 1; }
@@ -439,15 +439,15 @@
   </head>
   <body>
     <div class="segment-switch" aria-label="対象切り替え">
-      <a class="segment-btn" href="affair.html">既婚者の方はこちら</a>
-      <a class="segment-btn active" href="index.html">未婚者の方はこちら</a>
+      <a class="segment-btn active" href="affair.html">既婚者の方はこちら</a>
+      <a class="segment-btn" href="index.html">未婚者の方はこちら</a>
     </div>
     <header class="container top" aria-label="ヘッダー">
       <div class="brand-wrap">
         <div class="logo" aria-hidden="true">♡</div>
         <div>
           <p class="brand">やさしい探偵相談所</p>
-          <p class="sub">未婚カップルの味方</p>
+          <p class="sub">既婚者の味方</p>
         </div>
       </div>
       <a class="contact" href="tel:0120123456" aria-label="電話で無料相談 0120-123-456">
@@ -460,7 +460,7 @@
       <section class="hero card section" aria-labelledby="hero-title" style="margin-top: 24px;">
         <div>
           <p class="eyebrow">初めての探偵相談でも安心</p>
-          <h1 id="hero-title"><span class="accent hero-title-line">未婚カップル向け</span><br /><span class="hero-title-main">やさしい調査サービス</span></h1>
+          <h1 id="hero-title"><span class="accent hero-title-line">既婚者向け</span><br /><span class="hero-title-main">慎重な不倫調査サービス</span></h1>
           <p class="lead">不安な気持ちに寄り添い、丁寧にサポート。<br />まずは「事実確認」から始められます。</p>
 
           <div class="price-panel" aria-label="初回限定 不安解消プラン料金">
@@ -501,7 +501,7 @@
           <article class="problem-item card">
             <p>二人の将来のために事実を知りたい</p>
             <div class="photo-slot">
-              <img src="static/couple.png" alt="向き合うカップルの写真" />
+              <img src="static/couple.png" alt="夫婦関係の悩みイメージ写真" />
             </div>
           </article>
         </div>
@@ -512,7 +512,7 @@
         <div class="cheap-body">
           <p class="price" style="color: var(--blue);">5,000<small>円 / 時間</small></p>
           <div class="plan-points">
-            <div class="point">未婚・未婚約者限定</div>
+            <div class="point">既婚者のご相談に特化</div>
             <div class="point">最大3時間まで</div>
             <div class="point">指定場所で張り込み</div>
             <div class="point">写真と事実のみ報告</div>
@@ -543,17 +543,17 @@
 
       <section class="section card couple-plan" aria-labelledby="couple-title">
         <div>
-          <h2 id="couple-title">カップルプラン</h2>
+          <h2 id="couple-title">不倫調査プラン</h2>
           <p class="couple-price">30,000<span style="font-size: 0.4em;">円</span> <span style="font-size: 0.5em; color: #5a7596; font-weight:700;">/ 5時間</span></p>
           <ul class="checklist">
             <li>しっかり事実を確認したい方向け</li>
             <li>基本単位は1時間から</li>
             <li>詳細レポート追加 +40,000円</li>
           </ul>
-          <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">カップルプランを相談する</a>
+          <a class="cta secondary" href="#contact" style="width: 100%; margin-top: 16px;">不倫調査プランを相談する</a>
         </div>
         <div class="photo-slot couple-photo" style="margin-top: 0;">
-          <img src="static/couple_night.png" alt="夜の街を歩くカップルの写真" />
+          <img src="static/couple_night.png" alt="夜の張り込みイメージ写真" />
         </div>
       </section>
 
@@ -630,6 +630,6 @@
       </div>
     </section>
 
-    <footer>&copy; やさしい探偵相談所 / 未婚カップル向け調査サービス<br /><a href="legal.html" style="color:#5a7596;text-decoration:underline;">特商法・プライバシーポリシー・探偵業届出の掲示</a></footer>
+    <footer>&copy; やさしい探偵相談所 / 既婚者向け・不倫調査サービス<br /><a href="legal.html" style="color:#5a7596;text-decoration:underline;">特商法・プライバシーポリシー・探偵業届出の掲示</a></footer>
   </body>
 </html>
