@@ -75,35 +75,32 @@
       .contact strong { font-size: clamp(1.2rem, 2.6vw, 1.8rem); color: var(--blue); letter-spacing: 0.05em; font-weight: 800; }
 
       .segment-switch {
-        position: fixed;
-        right: 20px;
-        top: 120px;
-        z-index: 50;
-        display: grid;
-        gap: 10px;
+        margin: 0 auto 24px;
+        width: min(1000px, calc(100% - 40px));
+        display: flex;
+        justify-content: flex-end; /* ボタンを右寄せに */
       }
       .segment-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 60px;
-        width: 220px;
-        padding: 10px 14px;
+        min-height: 48px;
+        width: 180px;
+        padding: 8px 12px;
         border-radius: 999px;
-        font-size: 0.82rem;
+        font-size: 0.74rem;
         font-weight: 800;
         border: 1px solid var(--border);
         background: #fff;
         color: var(--blue-dark);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
       }
-      .segment-btn.active {
-        background: linear-gradient(135deg, #f285a0, var(--pink-deep));
-        border-color: transparent;
-        color: #fff;
+      .segment-btn:hover {
+        background: var(--blue-soft);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       }
       @media (max-width: 900px) {
-        .segment-switch { position: static; margin: 0 auto 12px; width: min(1000px, calc(100% - 40px)); grid-template-columns: 1fr 1fr; }
         .segment-btn { text-align: center; }
       }
 
@@ -152,6 +149,7 @@
         background: #fffcf5;
         padding: 20px;
         position: relative;
+        min-height: 188px;
       }
       .label {
         position: absolute;
@@ -173,6 +171,9 @@
         font-size: clamp(2.4rem, 8vw, 4rem);
         font-weight: 800;
         line-height: 1;
+        display: inline-block;
+        min-width: 7.2ch;
+        white-space: nowrap;
       }
       .price small { color: var(--blue-dark); font-size: 0.4em; font-weight: 700; }
       .price-note { margin: 8px 0 0; font-size: 0.85rem; color: #5a7596; font-weight: 500; }
@@ -443,10 +444,6 @@
     </style>
   </head>
   <body>
-    <div class="segment-switch" aria-label="対象切り替え">
-      <a class="segment-btn active" href="affair.html">既婚者の方はこちら</a>
-      <a class="segment-btn" href="index.html">未婚者の方はこちら</a>
-    </div>
     <header class="container top" aria-label="ヘッダー">
       <div class="brand-wrap">
         <div class="logo" aria-hidden="true">♡</div>
@@ -462,6 +459,10 @@
     </header>
 
     <main class="container">
+      <div class="segment-switch" aria-label="対象切り替え">
+        <a class="segment-btn" href="index.html">未婚者の方はこちら ＞</a>
+      </div>
+
       <section class="hero card section" aria-labelledby="hero-title" style="margin-top: 24px;">
         <div>
           <p class="eyebrow">初めての探偵相談でも安心</p>
@@ -539,7 +540,7 @@
             <li>基本単位は1時間から</li>
             <li>詳細レポート追加 +40,000円</li>
           </ul>
-          <a class="cta secondary cta-uniform" href="#contact">不倫調査プランを相談する</a>
+          <a class="cta secondary cta-uniform" href="plan.html#affair-plan-detail">詳しく見る</a>
         </div>
         <div class="photo-slot couple-photo" style="margin-top: 0;">
           <img src="static/couple_night.png" alt="夜の張り込みイメージ写真" />
