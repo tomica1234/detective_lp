@@ -176,6 +176,30 @@
         font-size: 2rem;
       }
 
+
+      .reward-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .reward-tile {
+        border: 1px solid #cfe0ef;
+        border-radius: 14px;
+        background: #f8fbff;
+        padding: 14px;
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .reward-tile h3 {
+        margin: 0;
+      }
+      .reward-amount {
+        color: var(--pink);
+        font-weight: 800;
+      }
       footer { text-align: center; padding: 40px 24px; color: #8ba1b8; font-size: 0.85rem; font-weight: 500; }
 
       /* プラン診断ツール */
@@ -427,7 +451,6 @@
           <li>ガソリン代</li>
           <li>駐車場代</li>
         </ul>
-        <img class="placeholder" src="static/plan-common-costs-overview.png" alt="調査車両・交通費の内訳イメージ" loading="lazy" />
       </section>
 
       <section class="section grid grid-2">
@@ -445,10 +468,8 @@
 
           <h3>調査例</h3>
           <p style="font-size: 0.95rem; background: #f8fbff; padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
-            指定された飲み屋の前で対象者が出てくるところを張り込み、誰といたかを報告。<br>数枚の写真と事実のみ伝達（詳細レポートなし）。
+            指定された居酒屋の前で対象者が出てくるところを張り込み、誰といたかを報告します。<br>数枚の写真と事実のみ伝達します（詳細レポートなし）。
           </p>
-
-          <img class="placeholder" src="static/plan-anxiety-relief-stakeout.png" alt="指定場所での短時間張り込み例（店舗前・退出確認）" loading="lazy" />
         </article>
 
         <article class="card">
@@ -471,8 +492,6 @@
             <li>浪費・ギャンブル</li>
           </ul>
           <p class="note" style="margin-top: 8px;">※レポート対象外：出自に関わること / 家族構成</p>
-
-          <img class="placeholder" src="static/plan-couple-timeline.png" alt="3回稼働の時間管理や延長パターンのタイムライン" loading="lazy" />
         </article>
 
         <article class="card">
@@ -500,30 +519,18 @@
           <ul class="checklist checklist-blue">
             <li>打ち切り または 10時間追加（都度4万円）</li>
           </ul>
-
-          <img class="placeholder" src="static/plan-affair-flow-day1-day2-extension.png" alt="長時間調査プランの流れ（Day1/Day2/延長）" loading="lazy" />
         </article>
 
         <article class="card">
           <h2>成果報酬（不倫プラン）</h2>
-          <p class="note">※上位成果に含まれる項目を優先して整理します。<br>※「要検討」項目は事前相談で確定します。</p>
+          <p class="note">※同日に複数成果が出た場合は上位成果を適用します。</p>
 
-          <ul class="checklist" style="margin-top: 16px;">
-            <li><span class="highlight">2万円：</span>異性とデート<br>
-              <span class="note">（2人きりでの行動を確認 / 店舗・駅・移動先など別場所での継続行動を撮影 / 写真・動画3点以上を時系列で記録 / 当日の行動ログをレポート記載）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">3万円：</span>身体接触の写真<br>
-              <span class="note">（手つなぎ・腕組み・キス・ハグ等の身体接触を明確に撮影 / 接触前後の流れがわかる連続カットを取得 / 撮影時刻・場所・状況コメント付きで提出）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">10万円：</span>第二の情報<br>
-              <span class="note">（交際相手に関する追加特定情報 / 氏名・居住エリア・勤務先候補などを裏取り付きで整理 / 取得経路と確度をレポート内に明記）</span>
-            </li>
-            <li style="margin-top: 12px;"><span class="highlight">70万円：</span>不貞行為の証拠<br>
-              <span class="note">（ホテル・自宅等への出入りを双方で確認 / 入室・退室の時間差と滞在時間を記録 / 同日内の行動導線を含めて不貞立証向けに報告書化）</span>
-            </li>
-          </ul>
-
-          <img class="placeholder" style="margin-top: 32px;" src="static/plan-result-reward-evidence-samples.png" alt="成果区分ごとの証拠サンプル比較（ぼかし入り）" loading="lazy" />
+          <div class="reward-grid">
+            <section class="reward-tile"><h3><span class="reward-amount">2万円</span>｜デート確認</h3><p>2人行動を継続確認。</p></section>
+            <section class="reward-tile"><h3><span class="reward-amount">3万円</span>｜身体接触</h3><p>手つなぎ・キス等を撮影。</p></section>
+            <section class="reward-tile"><h3><span class="reward-amount">10万円</span>｜追加特定情報</h3><p>相手情報を裏取り整理。</p></section>
+            <section class="reward-tile"><h3><span class="reward-amount">70万円</span>｜不貞証拠</h3><p>出入り・滞在を記録。</p></section>
+          </div>
         </article>
       </section>
     </main>
