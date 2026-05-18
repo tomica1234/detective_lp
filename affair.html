@@ -75,12 +75,12 @@
       .contact strong { font-size: clamp(1.2rem, 2.6vw, 1.8rem); color: var(--blue); letter-spacing: 0.05em; font-weight: 800; }
 
       .segment-switch {
-        position: fixed;
-        right: 16px;
-        top: 112px;
-        z-index: 50;
+        position: static;
+        margin: 0 auto 12px;
+        width: min(1000px, calc(100% - 40px));
         display: grid;
         gap: 8px;
+        grid-template-columns: 1fr 1fr;
       }
       .segment-btn {
         display: inline-flex;
@@ -103,7 +103,6 @@
         color: #fff;
       }
       @media (max-width: 900px) {
-        .segment-switch { position: static; margin: 0 auto 12px; width: min(1000px, calc(100% - 40px)); grid-template-columns: 1fr 1fr; }
         .segment-btn { text-align: center; }
       }
 
