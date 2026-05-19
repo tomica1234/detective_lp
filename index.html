@@ -671,15 +671,6 @@
       const submitButton = document.getElementById('form-submit');
 
       if (contactForm && hiddenIframe && formThanks && submitButton) {
-        submitButton.addEventListener('click', (event) => {
-          event.preventDefault();
-          if (contactForm.checkValidity()) {
-            contactForm.requestSubmit();
-          } else {
-            contactForm.reportValidity();
-          }
-        });
-
         contactForm.addEventListener('submit', (event) => {
           const honeypot = contactForm.querySelector('input[name="company"]');
           if (honeypot && honeypot.value) {
