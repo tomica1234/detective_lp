@@ -441,6 +441,30 @@
         box-shadow: 0 8px 20px rgba(59, 123, 189, 0.2);
         cursor: pointer;
       }
+
+      @media (max-width: 767px) {
+        .top {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 16px 0;
+        }
+        .brand { font-size: 1.1rem; }
+        .sub {
+          font-size: 0.78rem;
+          line-height: 1.4;
+          word-break: keep-all;
+        }
+        .contact {
+          text-align: left;
+          width: 100%;
+        }
+        .contact small,
+        .contact strong {
+          word-break: keep-all;
+          overflow-wrap: normal;
+        }
+      }
     </style>
   </head>
   <body>
