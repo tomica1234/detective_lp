@@ -128,8 +128,14 @@
         color: var(--blue-dark);
       }
       .accent { color: var(--pink); }
-      .hero-title-line { display: inline-block; white-space: nowrap; }
-      .hero-title-main { display: inline-block; white-space: nowrap; }
+      .hero-title-line,
+      .hero-title-main {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 1em;
+        font-weight: inherit;
+        line-height: inherit;
+      }
       .lead { margin: 16px 0 0; font-size: clamp(0.95rem, 2vw, 1.15rem); line-height: 1.8; color: #4a5c70; }
       .hero-visual {
         border-radius: 20px;
