@@ -733,26 +733,40 @@
       let submitted = false;
       const contactForm = document.getElementById('contact-form');
       const formThanks = document.getElementById('form-thanks');
-      const hiddenIframe = document.getElementById('hidden_iframe');
       const submitButton = document.getElementById('form-submit');
 
-      if (contactForm && hiddenIframe && formThanks && submitButton) {
-        contactForm.addEventListener('submit', (event) => {
+      if (contactForm && formThanks && submitButton) {
+        contactForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
           const honeypot = contactForm.querySelector('input[name="company"]');
           if (honeypot && honeypot.value) {
-            event.preventDefault();
             return;
           }
+
           submitted = true;
           submitButton.disabled = true;
           submitButton.textContent = '送信中…';
-        });
 
-        hiddenIframe.addEventListener('load', () => {
-          if (!submitted) return;
-          contactForm.style.display = 'none';
-          formThanks.style.display = 'block';
-          formThanks.classList.add('is-visible');
+          const formData = new FormData(contactForm);
+          formData.delete('company');
+
+          try {
+            await fetch(contactForm.action, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: new URLSearchParams(formData),
+            });
+
+            contactForm.style.display = 'none';
+            formThanks.style.display = 'block';
+            formThanks.classList.add('is-visible');
+          } catch (error) {
+            submitted = false;
+            submitButton.disabled = false;
+            submitButton.textContent = 'フォームから相談を送る';
+            alert('送信に失敗しました。時間をおいて再度お試しください。');
+          }
         });
       }
     </script>
