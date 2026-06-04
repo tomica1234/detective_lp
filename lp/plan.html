@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="static/アイコン.png" />
     <title>プラン詳細 | やさしい探偵相談所</title>
     <style>
       :root {
@@ -46,8 +47,8 @@
         width: 44px; height: 44px; border-radius: 14px;
         background: #fff;
         border: 2px solid var(--pink);
-        display: grid; place-items: center;
-        color: var(--pink); font-size: 22px;
+        display: block;
+        object-fit: cover;
       }
       .brand { margin: 0; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 800; color: var(--blue-dark); }
       .sub { margin: 2px 0 0; font-size: 0.8rem; color: #5a7596; font-weight: 500; }
@@ -470,7 +471,7 @@
   <body>
     <header class="container top" aria-label="ヘッダー">
       <div class="brand-wrap">
-        <div class="logo" aria-hidden="true">♡</div>
+        <img class="logo" src="static/アイコン.png" alt="" aria-hidden="true" />
         <div>
           <p class="brand">やさしい探偵相談所</p>
           <p class="sub">プラン詳細・料金案内</p>
