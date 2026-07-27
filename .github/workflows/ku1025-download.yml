@@ -1,0 +1,85 @@
+name: Temporary KU1025 download
+
+on:
+  push:
+    branches:
+      - tmp/ku1025-actions-20260727
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install downloader
+        run: python -m pip install --disable-pip-version-check gdown
+
+      - name: Download and validate files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import gdown
+
+          files = [
+              ("1obW9TWGTKLiZGkQM-5Tz8IiL08On4j77", "物工・応用電磁気学(四竃)2023.pdf", "pdf"),
+              ("1ne4wv9RpY3xnguVksioJPbKft7h-UQcX", "応用電磁気学(四竈)2022.pdf", "pdf"),
+              ("1-jZpt3IkLWm0QINYsBsV7Z1x0QssVxMf", "応用電磁気学(四竈)2020.pdf", "pdf"),
+              ("1pFvLySv_iD7YncL6JpOdhLMJWGZ8zeEo", "応用電磁気学(四竈)2015(2).jpg", "jpg"),
+              ("1yNn6TiaN_p7fJOUN2MLFU_bSHwuUoIpX", "応用電磁気学(四竈)2015(1).jpg", "jpg"),
+              ("10zp1S3wp28CHD-1aY56Mtev21O0FejPl", "応用電磁気学(四竈)2014(4).jpg", "jpg"),
+              ("1A1tQKclwB69V-34M_FffDFKl3HeQ3tkY", "応用電磁気学(四竈)2014(3).jpg", "jpg"),
+              ("1GKlm5F_bqkI255a1ZEMqVhexDpRQpmp3", "応用電磁気学(四竈)2014(2).jpg", "jpg"),
+              ("16fGkJXVx5ou-2Ot3PEOU2P5d1xB8d18V", "応用電磁気学(四竈)2014(1).jpg", "jpg"),
+              ("1U1FEkj9SatmlcOYzMg_Iloq2m7yiPpSk", "応用電磁気学(四竈)2013.PDF", "pdf"),
+              ("1CRf5H1OkiY4ZfHqH_PtJf6T1ECehPIqi", "応用電磁気学(四竈)2011.pdf", "pdf"),
+              ("10LQ2H957-cAqFR5iaB9lHxRAU4Qcch06", "応用電磁気学(四竃)2024.pdf", "pdf"),
+              ("1mq3qu_3GKWyiAO6kwRIiKQWwX-lrmWMB", "応用電磁気学(四竃)2021.pdf", "pdf"),
+          ]
+
+          out = Path("outputs")
+          out.mkdir(exist_ok=True)
+          manifest = []
+
+          for file_id, name, kind in files:
+              path = out / name
+              print(f"Downloading {name}", flush=True)
+              result = gdown.download(id=file_id, output=str(path), quiet=False)
+              if result is None or not path.is_file():
+                  raise RuntimeError(f"Download failed: {name}")
+              data = path.read_bytes()
+              if kind == "pdf" and not data.startswith(b"%PDF-"):
+                  raise RuntimeError(f"Not a PDF: {name}; prefix={data[:32]!r}")
+              if kind == "jpg" and not data.startswith(b"\xff\xd8\xff"):
+                  raise RuntimeError(f"Not a JPEG: {name}; prefix={data[:32]!r}")
+              digest = hashlib.sha256(data).hexdigest()
+              manifest.append(f"{digest}  {name}  {len(data)} bytes")
+
+          if len(list(out.iterdir())) != 13:
+              raise RuntimeError("Expected exactly 13 files")
+          (out / "SHA256SUMS.txt").write_text("\n".join(manifest) + "\n", encoding="utf-8")
+          print("\n".join(manifest))
+          PY
+          file outputs/*
+          ls -lh outputs
+
+      - name: Upload verified files
+        uses: actions/upload-artifact@v4
+        with:
+          name: applied-electromagnetism-shikama
+          path: outputs/
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 1
