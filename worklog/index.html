@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="description" content="稼働時間を記録して、今月の使い方を見える化するアプリ" />
+    <title>Worklog — 稼働管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="メインナビゲーション">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4.5a11.5 11.5 0 1 0 11.5 11.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M16 4.5V16l7.5-7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="2.3" fill="currentColor"/></svg>
+          </div>
+          <div>
+            <strong>Worklog</strong>
+            <span>稼働管理</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a class="nav-link active" href="#overview"><span class="nav-icon">⌂</span><span>ダッシュボード</span></a>
+          <a class="nav-link" href="#log-form"><span class="nav-icon">＋</span><span>稼働を記録</span></a>
+          <a class="nav-link" href="#history"><span class="nav-icon">▤</span><span>履歴</span></a>
+          <a class="nav-link" href="#analysis"><span class="nav-icon">◒</span><span>分析</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sync-mini" id="sidebar-sync-card">
+            <div class="sync-mini-top"><span class="status-dot"></span><span id="sidebar-sync-label">Sheets未接続</span></div>
+            <p>Googleスプレッドシートと同期できます</p>
+            <button class="text-button" id="open-settings-from-sidebar">連携設定 <span>→</span></button>
+          </div>
+          <div class="sidebar-footer">ローカル保存対応 · v1.0</div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs"><strong>稼働管理</strong></div>
+          <div class="topbar-actions">
+            <div class="sync-status" id="sync-status" aria-live="polite"><span class="status-dot"></span><span id="sync-status-label">ローカル保存中</span></div>
+            <button class="admin-button hidden" id="open-admin" title="管理者画面">管理</button>
+            <button class="icon-button" id="open-settings" title="連携設定" aria-label="連携設定">⚙</button>
+            <button class="account-switcher" id="open-account" title="アカウントを切り替える" aria-label="アカウントを切り替える"><span class="avatar" id="account-avatar">自</span><span class="account-name" id="account-name">自分</span><span class="account-chevron">⌄</span></button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="page-intro" id="overview">
+            <h1>稼働管理</h1>
+            <button class="primary-button" id="scroll-to-form"><span class="button-plus">＋</span> 新規記録</button>
+          </section>
+
+          <section class="kpi-grid" aria-label="今月の概要">
+            <article class="kpi-card kpi-featured">
+              <div class="kpi-label"><span class="kpi-icon mint">◷</span><span>今月の稼働時間</span><span class="kpi-month" id="kpi-month">2026年7月</span></div>
+              <div class="kpi-value" id="month-total">0<span class="unit">時間</span><small>00分</small></div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-label"><span class="kpi-icon blue">▤</span><span>記録件数</span></div>
+              <div class="kpi-value compact" id="month-count">0<span class="unit">件</span></div>
+              <div class="kpi-foot muted" id="month-days">—</div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-label"><span class="kpi-icon peach">↗</span><span>1日あたり平均</span></div>
+              <div class="kpi-value compact" id="daily-average">0<span class="unit">時間</span><small>00分</small></div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-label"><span class="kpi-icon lavender">◒</span><span>最多の分類</span></div>
+              <div class="kpi-value category-value" id="top-category">—</div>
+              <div class="kpi-foot muted" id="top-category-hours">—</div>
+            </article>
+          </section>
+
+          <section class="workspace-grid">
+            <article class="panel log-panel" id="log-form">
+              <div class="panel-heading">
+                <div><h2>稼働を記録</h2></div>
+              </div>
+              <form id="worklog-form" novalidate>
+                <input type="hidden" id="editing-id" />
+                <div class="time-grid">
+                  <div class="field-group">
+                    <label for="start-at">稼働開始 <span class="required">必須</span></label>
+                    <div class="input-with-button">
+                      <input type="datetime-local" id="start-at" required />
+                      <button type="button" class="now-button" data-now-target="start-at">現在</button>
+                    </div>
+                  </div>
+                  <div class="field-group">
+                    <label for="end-at">稼働終了 <span class="optional">あとで入力可</span></label>
+                    <div class="input-with-button">
+                      <input type="datetime-local" id="end-at" />
+                      <button type="button" class="now-button" data-now-target="end-at">現在</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="category-grid">
+                  <div class="field-group">
+                    <label for="major-category">大分類 <span class="required">必須</span></label>
+                    <select id="major-category" required>
+                      <option value="">大分類を選択</option>
+                      <option value="探偵">探偵</option>
+                      <option value="LLM">LLM</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label for="minor-category">小分類 <span class="required">必須</span></label>
+                    <select id="minor-category" required disabled>
+                      <option value="">先に大分類を選択してください</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label for="description">内容記述 <span class="optional">任意</span></label>
+                  <textarea id="description" rows="3" placeholder="どんな作業をしていたか、メモを残せます"></textarea>
+                </div>
+                <div class="form-message" id="form-message" role="alert"></div>
+                <div class="form-actions">
+                  <button type="button" class="secondary-button" id="reset-form">リセット</button>
+                  <button type="submit" class="primary-button"><span id="submit-label">記録を保存する</span><span class="button-arrow">→</span></button>
+                </div>
+              </form>
+            </article>
+
+            <article class="panel recent-panel" id="history">
+              <div class="panel-heading panel-heading-row">
+                <div><h2>最近の記録</h2></div>
+                <button class="link-button" id="show-all-records">すべて見る <span>→</span></button>
+              </div>
+              <div id="recent-records" class="recent-list"></div>
+            </article>
+          </section>
+
+          <section class="panel records-panel hidden" id="all-records-panel">
+            <div class="panel-heading panel-heading-row">
+              <div><h2>稼働履歴</h2></div>
+              <div class="records-tools">
+                <select id="period-filter" class="small-select"><option value="month">今月</option><option value="all">すべて</option></select>
+                <select id="major-filter" class="small-select"><option value="all">全大分類</option></select>
+                <select id="minor-filter" class="small-select"><option value="all">全小分類</option></select>
+                <button class="secondary-button compact-button" id="export-csv">CSVを書き出す</button>
+              </div>
+            </div>
+            <div class="table-scroll"><table class="records-table"><thead><tr><th>開始</th><th>終了</th><th>大分類 / 小分類</th><th>内容</th><th>時間</th><th></th></tr></thead><tbody id="records-body"></tbody></table></div>
+            <div class="empty-state hidden" id="records-empty"><div class="empty-icon">◷</div><h3>記録なし</h3></div>
+          </section>
+
+          <section class="analysis-section" id="analysis">
+            <div class="section-heading"><div><h2>時間の使い方</h2></div><span class="section-period" id="analysis-period">2026年7月</span></div>
+            <div class="analysis-grid">
+              <article class="panel category-panel"><div class="panel-heading panel-heading-row"><div><h3>分類ごとの稼働時間</h3></div><span class="chart-badge">今月</span></div><div id="category-bars" class="category-bars"></div></article>
+              <article class="panel insight-panel"><div class="panel-heading"><div><h3>ひとこと分析</h3></div></div><div id="insight-content" class="insight-content"></div></article>
+            </div>
+            <article class="panel trend-panel"><div class="panel-heading panel-heading-row"><div><h3>日別の稼働時間</h3></div><div class="trend-legend"><span class="legend-dot"></span>稼働時間</div></div><div id="daily-chart" class="daily-chart"></div></article>
+          </section>
+
+          <footer class="main-footer"><span>Worklog</span><span>データはこのブラウザに自動保存されます</span><button class="text-button" id="open-settings-footer">スプレッドシート連携を設定 <span>→</span></button></footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <div class="modal-card account-modal-card">
+        <div class="modal-header"><div><h2 id="account-title">アカウント</h2></div><button class="close-button" id="close-account" aria-label="閉じる">×</button></div>
+        <p class="modal-lead">記録と連携設定はアカウントごとに分かれます。</p>
+        <div class="account-current"><span class="avatar account-avatar-large" id="account-avatar-large">自</span><div><span class="account-current-label">現在のアカウント</span><strong id="account-modal-current">自分</strong></div><span class="role-badge admin" id="account-modal-role">管理者</span></div>
+        <div class="field-group"><label for="account-select">切り替えるアカウント</label><select id="account-select"></select></div>
+        <button class="primary-button full-button" id="switch-account">このアカウントに切り替える <span class="button-arrow">→</span></button>
+        <div id="create-account-section">
+          <div class="account-divider"><span>新しいアカウント</span></div>
+          <div class="field-group"><label for="new-account-name">アカウント名</label><input type="text" id="new-account-name" maxlength="30" placeholder="例：橘駿太" /></div>
+          <button class="secondary-button full-button" id="create-account">アカウントを追加</button>
+        </div>
+        <div class="modal-note"><span>ⓘ</span><span>このアプリのアカウントは現在のブラウザ内で分離されます。別の端末でも同じ記録を使う場合は、アカウントごとにSheets連携を設定してください。</span></div>
+        <div class="sync-feedback" id="account-message" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+      <div class="modal-card admin-modal-card">
+        <div class="modal-header"><div><h2 id="admin-title">管理者</h2></div><button class="close-button" id="close-admin" aria-label="閉じる">×</button></div>
+        <div class="admin-summary"><div><span>アカウント</span><strong id="admin-account-count">0</strong></div><div><span>全記録</span><strong id="admin-record-count">0</strong></div><div><span>全稼働時間</span><strong id="admin-total-hours">0h</strong></div></div>
+        <div class="admin-list" id="admin-account-list"></div>
+        <div class="sync-feedback" id="admin-message" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal-card">
+        <div class="modal-header"><div><h2 id="settings-title">Googleスプレッドシート連携</h2></div><button class="close-button" id="close-settings" aria-label="閉じる">×</button></div>
+        <p class="modal-lead">Apps ScriptのWebアプリURLを設定してください。</p>
+        <div class="field-group"><label for="sync-url">WebアプリURL</label><input type="url" id="sync-url" placeholder="https://script.google.com/macros/s/.../exec" /></div>
+        <div class="field-group"><label for="sync-token">アクセストークン <span class="optional">任意</span></label><input type="password" id="sync-token" placeholder="Apps Scriptで設定した場合のみ" /></div>
+        <div class="modal-note"><span>ⓘ</span><span>設定方法は同梱のREADMEにあります。URLを保存すると、ヘッダーの同期ボタンが使えるようになります。</span></div>
+        <div class="modal-actions"><button class="secondary-button" id="pull-from-sheet">シートから取得</button><button class="secondary-button" id="save-settings">設定を保存</button><button class="primary-button" id="sync-now">今すぐ同期 <span class="button-arrow">→</span></button></div>
+        <div class="sync-feedback" id="sync-feedback" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

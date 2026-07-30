@@ -1,0 +1,12 @@
+node_modules/
+google-apps-script.gs
+appsscript.json
+package.json
+package-lock.json
+README.md
+.clasp.json
+.claspignore
+.gitignore
+.env*
+wrangler.toml
+.assetsignore

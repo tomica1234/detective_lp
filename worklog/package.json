@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "pages:deploy": "wrangler pages deploy . --project-name worklog"
+  },
+  "devDependencies": {
+    "@google/clasp": "^3.3.0",
+    "wrangler": "^4.115.0"
+  }
+}
